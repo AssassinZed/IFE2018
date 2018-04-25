@@ -7,11 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>No.1 - 制作一个简单的菜单动画效果</title>
     <style>
-        #sec1 {
-            margin: 100px auto
-        }
-
-        #sec1 p {
+        #test p {
             font-size: 60px;
             text-align: center;
             margin-bottom: 30px;
@@ -20,28 +16,24 @@
             transition: all .5s ease-in-out;
         }
 
-        #sec1 hr {
+        #test hr {
             height: 10px;
-            margin: 0px auto;
+            margin-bottom: 100px;
             background: blue;
             -webkit-transition: all .5s ease-in-out;
             -moz-transition: all .5s ease-in-out;
             transition: all .5s ease-in-out;
         }
 
-        #sec2 {
-            margin: 0 auto;
-        }
-
-        #sec2 button {
+        #test button {
             display: block;
             width: 250px;
             font-size: 45px;
-            margin: 10px auto;
+            margin: 0 auto;
             border: 1px solid #999;
             border-radius: 10px;
             box-shadow: 0 2px rgba(0, 0, 0, 0.4);
-            outline: none
+            outline: none;
         }
 
         .activePara {
@@ -55,36 +47,26 @@
 
         .activeHr {
             visibility: visible;
-            width: 350px;
+            width: 280px;
         }
     </style>
 </head>
 
 <body>
 
-    <section id="sec1">
-        <p>前端学院</p>
-        <hr class="notActiveHr">
+    <section id="test">
+        <p v-bind:class="{'activePara': isActive}">前端学院</p>
+        <hr v-bind:class="[isActive ? 'activeHr' : 'notActiveHr']">
+        <button v-on:click="isActive=!isActive">切换样式</button>
     </section>
 
-    <section id="sec2">
-        <button class="btn">切换样式</button>
-    </section>
-
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script>
-        $(document).ready(function () {
-            let status = 0;
-            $('button').click(function () {
-                status = !status;
-                if (status) {
-                    $('p').addClass('activePara');
-                    $('hr').removeClass('notActiveHr').addClass('activeHr');
-                } else {
-                    $('p').removeClass('activePara');
-                    $('hr').removeClass('activeHr').addClass('notActiveHr');
-                }
-            })
+        new Vue({
+            el: '#test',
+            data: {
+                isActive: false
+            }
         })
     </script>
 </body>
