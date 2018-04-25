@@ -75,15 +75,13 @@
         let btn = document.querySelector('button');
         let para = document.querySelector('p');
         let hr = document.querySelector('hr');
-        let classes = hr.classList;
 
         btn.addEventListener('click', function () {
             para.classList.toggle('activePara');
-
-            if (classes.contains('notActiveHr')) {
-                classes.replace('notActiveHr', 'activeHr');
+            if (hr.classList.contains('notActiveHr')) {
+                hr.className = 'activeHr';
             } else {
-                classes.replace('activeHr', 'notActiveHr')
+                hr.className = 'notActiveHr';
             }
         })        
     </script>
