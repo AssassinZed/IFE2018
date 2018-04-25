@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>No.1 - 制作一个简单的菜单动画效果</title>
+    <style>
+        #sec1 {           
+            margin: 100px auto;            
+        }
+
+        #sec1 p {
+            font-size: 60px;
+            text-align: center;
+            margin-bottom: 30px;
+            -webkit-transition: all .5s ease-in-out;
+            -moz-transition: all .5s ease-in-out;
+            transition: all .5s ease-in-out;
+        }
+
+        #sec1 hr {
+            width: 0px;
+            height: 10px;
+            visibility: hidden;
+            margin: 0px auto;
+            background: blue;
+            -webkit-transition: all .5s ease-in-out;
+            -moz-transition: all .5s ease-in-out;
+            transition: all .5s ease-in-out;
+        }
+
+        #sec2 {            
+            margin: 0 auto;            
+        }
+
+        #sec2 button {
+            display: block;
+            width: 250px;
+            font-size: 45px;            
+            margin: 10px auto;
+            border: 1px solid #999;
+            border-radius: 10px;
+            box-shadow: 0 2px rgba(0, 0, 0, 0.4);
+            outline: none
+        }
+    </style>    
+</head>
+
+<body>
+
+    <section id="sec1">
+        <p>前端学院</p>
+        <hr id="line">
+    </section>
+
+    <section id="sec2">
+        <button class="btn">切换样式</button>
+    </section>
+
+    <script>
+        let para = document.getElementsByTagName('p')[0];
+        let line = document.getElementById('line');
+        let btn = document.getElementsByTagName('button')[0];
+        btn.addEventListener('click', function () {
+            line.style.visibility='visible';
+            line.style.width='350px';    
+            para.style.color='blue';
+            setTimeout(function() {
+                line.style.visibility='hidden';
+                line.style.width='0px';
+                para.style.color='black';
+            },1200)
+        })
+    </script>
+</body>
+
+</html>
