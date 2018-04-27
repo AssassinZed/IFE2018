@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>No.2 - 初步接触 CSS 2D 变形</title>
+    <style>
+        html * {
+            padding: 0;
+            margin: 0
+        }
+
+        #container {
+            display: flex;
+            margin: 10px 10px 0 10px;
+            justify-content: center;
+        }
+
+        #container>div {
+            width: 80px;
+            height: 90px;
+            background: pink;
+            margin: 50px 70px 0 70px;
+            text-align: center;
+            line-height: 90px;
+        }
+
+        #container div:nth-child(2) {
+            transform: skewX(30deg);
+        }
+
+        #container div:nth-child(3) {
+            transform: scaleX(0.5);
+        }
+
+        #container div:nth-child(4) {
+            transform: rotate(45deg);
+        }
+
+        #container div:nth-child(5) {
+            transform: translate(10px, 20px);
+        }
+
+        #container div:nth-child(6) {
+            transform: rotate(45deg) scaleX(2) skewX(20deg) translate(10px, 70px)
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div>box0</div>
+        <div>box1</div>
+        <div>box2</div>
+        <div>box3</div>
+        <div>box4</div>
+        <div>box5</div>
+    </div>
+    <hr>
+</body>
+
+</html>

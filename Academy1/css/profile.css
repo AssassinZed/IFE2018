@@ -1,0 +1,242 @@
+/* global */
+
+html * {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    font-family: "Gill Sans W04",GillSans,"Gill Sans","Gill Sans MT",Calibri,"Trebuchet MS",sans-serif;
+    line-height: 1.4em;
+}
+
+body p {
+    margin: 15px 0 0 0;
+}
+
+h2,h3,h4 {
+    color: #2b2b2b;
+    font-weight: normal;
+    font-family: "Adobe Garamond Pro",Garamond,Baskerville,"Baskerville Old Face","Hoefler Text","Times New Roman",serif;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.73333em;
+}
+
+ul {
+    list-style: none
+}
+
+/* root */
+
+.container {    
+    display: flex;
+    justify-content: center;    
+}
+
+
+/* left */
+
+#left {
+    width: 320px;
+    background: black;
+    color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 15px;
+}
+
+#left .pic {
+    margin-top: 60px;
+}
+
+#left figure {        
+    margin: 0 auto;
+}
+
+#left .pic img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+#left figcaption {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* div.nickname */
+
+.nickname {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* div.attr */
+
+.attr {    
+    margin-top: 30px;
+}
+
+.attr h3, .build h3, .rune h3 {
+    color: white;
+    width: 120px;
+    height: 30px;
+    margin: 20px 10px;
+}
+
+.attr ul li {
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    margin: 10px;
+}
+
+.stat {
+    display: block;    
+    padding-left: 30px;
+}
+
+.hp {
+    background: url(../img/stat-icons-sprite.png) no-repeat 0 -150px;
+}
+
+.ad {
+    background: url(../img/stat-icons-sprite.png) no-repeat 0 0;
+}
+
+.as {
+    background: url(../img/stat-icons-sprite.png) no-repeat 0 -50px;
+}
+
+.ms {
+    background: url(../img/stat-icons-sprite.png) no-repeat 0 -75px;
+}
+
+.hp-regen {
+    background: url(../img/stat-icons-sprite.png) no-repeat 0 -175px;
+}
+
+.armor {
+    background: url(../img/stat-icons-sprite.png) no-repeat 0 -25px;
+}
+
+.mr {
+    background: url(../img/stat-icons-sprite.png) no-repeat 0 -125px;
+}
+
+/* div.build */
+
+.build ul li {
+    display: inline-block;
+    margin: 10px 18px;
+}
+
+/* div.rune */
+
+/* div.domination */
+
+.domination h4 {
+    font-size: 12px;
+    color: #C86464;
+    margin: 3px 8px;
+}
+.domination ul li {
+    display: inline-block;
+    margin: 5px;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #C86464;
+    border-radius: 100%;
+}
+
+/* div.precision */
+
+.precision h4 {
+    font-size: 12px;
+    color: #A08C6B;
+    margin: 3px 8px;
+}
+
+.precision ul li {
+    display: inline-block;
+    margin: 5px;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #A08C6B;
+    border-radius: 100%;
+}
+
+
+/* right */
+
+#right {
+    width: 800px;
+    padding: 20px;
+    border-right: 1px solid black;
+}
+
+/* div.ability */
+
+.ability {    
+    margin-top: 30px;
+}
+
+.ability h2, .background h2 {
+    color: #dfe1e1;
+    font-weight: bold;
+    margin-bottom: 30px;
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+    background: black;
+    box-shadow: 0 1px 2px #323232;
+    text-indent: 1em; 
+}
+
+.rela {
+    position: relative;    
+}
+
+.divider {
+    display: block;
+    background-color: #d1d3d4;
+    border: 0;
+    border-top: 1px solid #d1d3d4;
+    border-bottom: 1px solid #f9f9fa;
+    box-sizing: border-box;
+    height: 3px;
+    margin: 20px 0 30px 0;
+}
+
+.default-1-6 {
+    display: inline-block;
+    width: 12%;
+}
+
+.default-5-6 {
+    display: inline-block;
+    width: 80%;
+    position: absolute;
+    top: -10px;
+}
+
+.default-5-6 p {
+    height: 35px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.spell-description {
+    margin: 30px 0;
+}
+
+/* article.background */
