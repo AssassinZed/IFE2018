@@ -1,0 +1,21 @@
+html * {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin-left: 10px;
+}
+
+li {
+    display: inline-block;
+    margin-right: 35px;
+}
+
+.category {
+    margin: 20px 0;
+}
+
+.sec {
+    margin: 15px 0;
+}

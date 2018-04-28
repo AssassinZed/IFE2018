@@ -1,0 +1,50 @@
+html * {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin-left: 10px;
+}
+
+li {
+    display: inline-block;
+    margin-right: 35px;
+}
+
+#container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+/* left */
+
+#resume {
+    width: 190px;
+    height: 700px;
+    float: left;
+    background-color: #65B4FA;
+}
+
+#resume h1 {
+    font-size: 35px;    
+    color: white;
+    text-align: center;
+    margin: 50px auto;
+}
+
+/* right */
+
+.detail {
+    float: left;
+    margin-left: 25px;
+}
+
+.category {
+    margin: 20px 0;
+}
+
+.sec {
+    margin: 15px 0;
+}
+
