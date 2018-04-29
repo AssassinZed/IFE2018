@@ -179,15 +179,45 @@ body {
     right: 0;
 }
 
-.face:hover .mouth.left {
-    transform: rotate(60deg);
-    transition: all 0.5s ease-in-out;
-}
-
 /*鼠标hover样式 写在这里*/
 
+.ear,
+.eye-core,
+.eye-bottom,
+.face-red,
+.mouth {
+    transition: all 0.8s ease-in-out;
+}
+
 /* ear */
+.face:hover ~ .ear-wrap .left {
+    transform: rotate(-12deg);   
+}
 
+.face:hover ~ .ear-wrap .right {
+    transform: rotate(12deg);    
+}
 
+/* eye-core */
+.face:hover .eye-core {    
+    transform: scaleX(0.2);
+}
 
+/* eye-bottom */
+.face:hover .eye-bottom {    
+    margin-top: 30px;    
+}
 
+/* face-red */
+.face:hover .face-red {    
+    opacity: .6;    
+}
+
+/* mouth */
+.face:hover .mouth.left {
+    border-bottom-left-radius: 50%;    
+}
+
+.face:hover .mouth.right {
+    border-bottom-right-radius: 50%;
+}
