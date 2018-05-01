@@ -17,9 +17,16 @@ li {
 }
 
 #container {
-    margin: 0 auto;
-    width: 80%;
-    border: 1px solid #D6D6D6;
+    margin-left: 10px;
+    width: 70%;   
+}
+
+#toggleStyle {
+    margin: 25px 0;
+}
+
+#toggleStyle button {
+    margin: 5px 15px;
 }
 
 /* Resume */
@@ -37,6 +44,10 @@ li {
 }
 
 /* detail */
+
+.detail {
+    border: 1px solid #D6D6D6;
+}
 
 .category {
     height: 90px;    

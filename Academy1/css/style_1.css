@@ -3,8 +3,17 @@ html * {
     padding: 0;
 }
 
-body {
+#container {
     margin-left: 10px;
+    width: 70%; 
+}
+
+#toggleStyle {
+    margin: 25px 0;
+}
+
+#toggleStyle button {
+    margin: 5px 15px;
 }
 
 li {

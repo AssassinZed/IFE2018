@@ -3,18 +3,22 @@ html * {
     padding: 0;
 }
 
-body {
-    margin-left: 10px;
-}
-
 li {
     display: inline-block;
     margin-right: 35px;
 }
 
-#container {
-    margin: 0 auto;
-    width: 80%;
+ #container {
+    margin-left: 10px;
+    width: 70%;
+}
+
+#toggleStyle {
+    margin: 25px 0;
+}
+
+#toggleStyle button {
+    margin: 5px 15px;
 }
 
 /* left */

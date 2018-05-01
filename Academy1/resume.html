@@ -6,11 +6,17 @@
     <title>Resume</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style_3.css">
+    <link rel="stylesheet" href="./css/style_2.css">
 </head>
 
 <body>
     <div id="container">
+
+        <section id="toggleStyle">
+            <button>Style1</button>
+            <button>Style2</button>
+            <button>Style3</button>
+        </section>
 
         <section id="resume">
             <h1>简历</h1>
@@ -106,6 +112,16 @@
 
         </section>
     </div>
+
+    <script>        
+        let link = document.getElementsByTagName('link')[0];
+        let buttonList=document.querySelectorAll('button');
+        for (let [index,item] of buttonList.entries()) {
+            item.onclick=function() {
+                link.href = `./css/style_${index+1}.css`;
+            }
+        }
+    </script>
 </body>
 
 </html>
