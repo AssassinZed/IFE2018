@@ -113,14 +113,14 @@
         </section>
     </div>
 
-    <script>        
-        let link = document.getElementsByTagName('link')[0];
-        let buttonList=document.querySelectorAll('button');
-        for (let [index,item] of buttonList.entries()) {
-            item.onclick=function() {
-                link.href = `./css/style_${index+1}.css`;
+    <script>   
+        var link = document.querySelector('link');
+        var buttonList = document.querySelectorAll('button');
+        buttonList.forEach(function (value, index) {
+            value.onclick = function () {
+                link.href = './css/style_' + (index + 1) + '.css'  // () is necessary
             }
-        }
+        })
     </script>
 </body>
 
