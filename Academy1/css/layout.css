@@ -1,0 +1,175 @@
+html * {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* header */
+
+header {
+    background-color: #333;
+    width: 100%;
+}
+
+.topheader {
+    width: 960px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 20px;
+    line-height: 80px;
+    color: #eee;
+    float: left;
+}
+
+.link {
+    float: right;
+    padding-top: 5px;
+}
+
+.link a {
+    font-size: 12px;    
+    color: #eee;
+    margin-left: 6px;
+}
+
+/* banner */
+
+.banner {
+    width: 100%;    
+    background-color: #6B3;    
+}
+
+.slide-container {
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    display: flex;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    right: 0;
+    bottom: 10px;
+}
+
+.slide li {
+    width: 25px;
+    height: 30px;
+    border: 1px solid #333;
+    background-color: #B2DD99;
+    margin: 0 2px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 10px;
+}
+
+li.active {
+    height: 50px;
+    line-height: 70px;
+}
+
+nav {
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    -webkit-align-items: fle;
+    align-items: flex-end;
+}
+
+.menu-container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.menu {
+    height: 50px;
+     /* 避免 border 重叠 */
+    margin-bottom: 1px;
+    /* 去除 inline-block 间距 */
+    font-size: 0;
+    word-spacing: -1px;
+    letter-spacing: -1px;
+}
+
+.menu li {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: #e9e9e9; 
+    border: 1px solid #ccc;
+    margin: 0;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 18px 18px 0 0;
+    /* 去除 inline-block 间距 */
+    font-size: 16px;
+    letter-spacing: normal;
+    letter-spacing: normal;
+}
+
+.menu li.actived {
+    background-color: #fff;
+    /* 增加 padding 覆盖 border */
+    border-bottom-style: none;
+    padding-bottom: 1px;
+}
+
+.content {
+    width: 960px;
+    height: 590px;
+    margin: 10px auto;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.content div {
+    padding: 80px;
+    border: 1px solid #ccc;
+    -webkit-flex-basis: content;
+    flex-basis: content;
+}
+
+.content div:nth-child(1),
+.content div:nth-child(2) {
+    padding: 80px 109px;
+}
+
+.content div:nth-child(3) {
+    padding: 80px 100px;
+}
+
+.content div:nth-last-child(3),
+.content div:nth-last-child(2),
+.content div:nth-last-child(1) {
+    padding: 80px 120px;
+}
+
+/* footer */
+
+footer {
+    width: 100%;
+    height: 120px;
+    background-color: #666;
+}
+
+footer div {
+    color: #eee;
+    font-size: 14px;
+    text-align: center;
+    /* 为何不能设置margin-top */
+    padding-top: 15px;
+}
