@@ -16,6 +16,7 @@ html * {
 
 body {
     font-family: Montserrat Light, sans-serif;
+    color: #141414;
 }
 
 h1,h2,h3,h4 {
@@ -36,23 +37,17 @@ li {
     text-align: center;
 }
 
-
-
-
-
-
-
-/* header */
+/* 一、header */
 
 header {
     width: 100%;
     height: 990px;
     background-image: url(../img/website/header-fg.png), url(../img/website/heaer-bg.png);
-    background-repeat: no-repeat no-repeat;
-    background-position: center center;  
+    background-size: cover;
+    color: #fff;
 }
 
-/* rules */
+/* 1.rules */
 
 .rules {       
     width: 770px;
@@ -62,7 +57,6 @@ header {
 
 .rules-detail h1 {
     font-size: 62px;
-    color: #fff;
     text-align: center;
     font-weight: 100;
     margin-bottom: 80px;
@@ -71,10 +65,10 @@ header {
 .rules-detail h4 {
     font-size: 20px;
     font-weight: 100;
-    color: #fff;
+    opacity: .7;
 }
 
-/* register */
+/* 2.register */
 
 .register {
     width: 970px;
@@ -86,14 +80,13 @@ header {
 
 .register h3 {
     font-size: 16px;
-    color: #fff;
     margin-top: 55px;
 }
 
 .register h4 {
     font-size: 12px;
-    color: #fff;
     margin-top: 20px;
+    opacity: .3;
 }
 
 .inputfield {
@@ -109,7 +102,7 @@ header {
     margin: 50px 15px;
     font-size: 14px;
     padding-left: 20px;
-    color:#fff;
+    color: inherit;
 }
 
 .inputfield input:last-child {
@@ -117,16 +110,12 @@ header {
     height: 50px;
     background-color: #fff;
     padding-left: 0;
-    color: #000;
+    color: #141414;
 }
 
 
 
-
-
-
-
-/* intro */
+/* 二、intro */
 
 .intro {
     width: 1100px;
@@ -134,7 +123,7 @@ header {
     margin: 0 auto;
 }
 
-/* hgroup */
+/* 1.hgroup */
 
 .intro .center-text h3 {
     font-size: 14px;
@@ -152,7 +141,7 @@ header {
     margin-top: 55px;
 }
 
-/* advantage */
+/* 2.advantage */
 
 .advantage {
     width: 100%;
@@ -191,6 +180,7 @@ header {
 .advantage figcaption p {
     line-height: 1.8;
     font-weight: 100;
+    opacity: .7;
 }
 
 .iphone img {
@@ -210,18 +200,14 @@ header {
 }
 
 
-
-
-
-
-/* policy */
+/* 三、policy */
 
 .policy {
     background-image: url(../img/website/middle-fg.png), url(../img/website/middle-bg.png);
-    background-repeat: no-repeat no-repeat;
-    background-position: center center;  
+    background-size: cover;
     width: 100%;    
     margin-top: 100px;
+    color: #fff;
 }
 
 .policy-container {
@@ -233,11 +219,10 @@ header {
     justify-content: space-between;
 }
 
-/* left */
+/* 1.left */
 
 .left {
     width: 525px;
-    color: #fff;
     position: relative;
     left: 317px;
     font-weight: 100;
@@ -256,6 +241,8 @@ header {
 .detail-text p {
     font-size: 18px;
     margin-bottom: 60px;
+    opacity: .7;
+    line-height: 1.6;
 }
 
 .check-try {
@@ -272,35 +259,26 @@ header {
 
 .check-try button:first-child {
     background-color: #fff;
-    color: #000;
+    color: #141414;
     margin-right: 30px;
 }
 
 .check-try button:last-child {
     background-color: transparent;
-    color: #fff;
+    color: inherit;
 }
 
-/* right */
+/* 2.right */
 
 .right {
-    width: 643px;
+    width: 645px;
     height: 600px;
 }
 
 
+/* 四、trial */
 
-
-
-
-
-
-
-
-
-/* trial */
-
-.trial {    
+.trial { 
     width: 1000px;
     height: 580px;
     margin: 0 auto;
@@ -309,6 +287,7 @@ header {
 }
 
 .trial > h1 {
+    font-size: 42px;
     font-weight: 100;
 }
 
@@ -326,19 +305,13 @@ header {
 
 .saying li p {
     margin-top: 33px;
-    color: #666;
     font-size: 16px;
     line-height: 1.8;
+    opacity: .7;
 }
 
 
-
-
-
-
-
-
-/* learn-choose */
+/* 五、learn-choose */
 
 .learn-choose {
     width: 1000px;
@@ -347,16 +320,16 @@ header {
     font-weight: 100;
 }
 
-.learn-choose figure {
+.learn-choose > div {
     overflow: hidden;
 }
 
-.learn-choose img {
+.learn-choose .image {
     width: 570px;
     height: 350px;
 }
 
-.learn-choose figcaption {
+.learn-choose .text {
     width: 310px;
     height: 232px;
     margin-top: 70px;
@@ -370,42 +343,42 @@ header {
 
 .learn-choose p {
     font-size: 16px;
-    color: #999;
+    opacity: .7;
 }
 
-/* leaf */
+/* 1.leaf */
 
-.leaf img {
+.leaf .image {
+    background-image: url(../img/website/leaf.png);
+    background-position: center;
     float: left;
+    border-radius: 2px;
 }
 
-.leaf figcaption {
+.leaf .text {
     float: right;
     margin-right: 10px;
 }
 
-/* bird */
+/* 2.bird */
 
-.bird {
+.bird {    
     margin-top: 80px;
 }
 
-.bird figcaption {
+.bird .text {
     float: left;
 }
 
-.bird img {
+.bird .image {
+    background-image: url(../img/website/bird.png);
+    background-position: center;
     float: right;
+    border-radius: 2px;
 }
 
 
-
-
-
-
-
-
-/* crew */
+/* 六、crew */
 
 .crew {
     width: 970px;
@@ -426,8 +399,8 @@ header {
 
 .crew > hgroup h3 {   
     font-size: 18px;
-    color: #666;
     font-weight: 100;
+    opacity: .7;
 }
 
 /* crew-pic */
@@ -520,13 +493,7 @@ header {
 }
 
 
-
-
-
-
-
-
-/* social */
+/* 七、social */
 
 .social {
     width: 920px;
@@ -535,7 +502,7 @@ header {
     align-items: center;
 }
 
-/* email */
+/* 1.email */
 
 .email {
     width: 470px;
@@ -546,10 +513,11 @@ header {
     align-items: center;
 }
 
-.email h3 {
+.email > h3 {
     margin-top: 50px;
     margin-bottom: 50px;
     font-size: 16px;
+    letter-spacing: 2px;
 }
 
 .email input:nth-child(2),
@@ -561,6 +529,7 @@ header {
     font-size: 14px;
     letter-spacing: 1px;
     padding-left: 20px;
+    opacity: .5;
 }
 
 .email :nth-child(4) {
@@ -572,6 +541,7 @@ header {
     letter-spacing: 1px;
     padding-left: 20px;
     padding-top: 20px;
+    opacity: .5;
 }
 
 .email input:nth-child(5) {
@@ -583,13 +553,12 @@ header {
     font-size: 12px;
 }
 
-/* contacts */
+/* 2.contacts */
 
 .contacts {
     width: 360px;
     margin-left: 130px;
 }
-
 
 .contacts h1 {
     font-size: 42px;
@@ -602,6 +571,7 @@ header {
     margin-top: 40px;
     margin-bottom: 65px;
     font-weight: 100;
+    opacity: .7;
 }
 
 .contact-detail li {
@@ -621,21 +591,11 @@ header {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* footer */
+/* 八、footer */
 
 footer {
     width: 100%; 
-    background-color: #000;    
+    background-color: #000;
     color: #fff;
     padding-top: 80px;
     padding-bottom: 120px;
@@ -663,7 +623,7 @@ footer {
 .footer-column p {
     margin: 20px auto;
     font-size: 16px;
-    color: #bbb;
+    opacity: .3;
 }
 
 .footer-column figure img {
