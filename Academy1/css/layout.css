@@ -67,14 +67,15 @@ header {
     border: 1px solid #333;
     background-color: #B2DD99;
     margin: 0 2px;
-    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-end;
     line-height: 30px;
     font-size: 10px;
 }
 
 li.active {
     height: 50px;
-    line-height: 70px;
 }
 
 nav {
