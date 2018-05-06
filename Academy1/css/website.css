@@ -22,6 +22,12 @@ h1,h2,h3,h4 {
     font-weight: normal;
 }
 
+input,
+button,
+textarea {
+    font-family: Montserrat Light, sans-serif;
+}
+
 li {
     list-style-type: none;
 }
