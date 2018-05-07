@@ -23,22 +23,17 @@
         function add(x, y) { return x + y };
         function minus(x, y) { return x - y };
         function times(x, y) { return x * y };
-        function divide(x, y) { return x / y };    
-        let fnList = [add, minus, times, divide];    
+        function divide(x, y) { return x / y };
+        let fnList = [add, minus, times, divide];
 
-        function cal() {
-            let num1 = Number(inputList[0].value);
-            let num2 = Number(inputList[1].value);
-            btnList.forEach(function (val, idx) {
-                val.onclick = function () {
-                    para.innerHTML = `运算结果为：${fnList[idx](num1, num2)}`
-                }
-            })
-        }
-
-        inputList[0].onblur = cal;
-        inputList[1].onblur = cal;
-
+        btnList.forEach((val, idx) => {
+            val.onclick = () => {
+                let num1 = Number(inputList[0].value);  // 在点击按钮时才获取表单数据
+                let num2 = Number(inputList[1].value);
+                para.innerHTML = `运算结果为：${fnList[idx](num1, num2)}`
+            }
+        })
+        
     </script>
 </body>
 
