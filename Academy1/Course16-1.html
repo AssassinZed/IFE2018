@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+
+        let inputList = document.querySelectorAll('input');
+        let btnList = document.querySelectorAll('button');
+        let para = document.querySelector('p');
+
+        function add(x, y) { return x + y };
+        function minus(x, y) { return x - y };
+        function times(x, y) { return x * y };
+        function divide(x, y) { return x / y };    
+        let fnList = [add, minus, times, divide];    
+
+        function cal() {
+            let num1 = Number(inputList[0].value);
+            let num2 = Number(inputList[1].value);
+            btnList.forEach(function (val, idx) {
+                val.onclick = function () {
+                    para.innerHTML = `运算结果为：${fnList[idx](num1, num2)}`
+                }
+            })
+        }
+
+        inputList[0].onblur = cal;
+        inputList[1].onblur = cal;
+
+    </script>
+</body>
+
+</html>
