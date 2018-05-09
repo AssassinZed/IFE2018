@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>IFE ECMAScript</title>
+    <title>第十六天，开始感受JS的乐趣</title>
 </head>
 
 <body>
@@ -30,10 +30,14 @@
             val.onclick = () => {
                 let num1 = Number(inputList[0].value);  // 在点击按钮时才获取表单数据
                 let num2 = Number(inputList[1].value);
-                para.innerHTML = `运算结果为：${fnList[idx](num1, num2)}`
+                if (idx == 3 && num2 == 0) {
+                    alert('除数不能为零！')
+                } else {
+                    para.innerHTML = `运算结果为：${fnList[idx](num1, num2)}`
+                }
             }
         })
-        
+
     </script>
 </body>
 

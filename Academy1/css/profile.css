@@ -37,7 +37,8 @@ ul {
 
 .container {    
     display: flex;
-    justify-content: center;    
+    justify-content: center;
+    position: relative; 
 }
 
 
@@ -239,4 +240,11 @@ ul {
     margin: 30px 0;
 }
 
-/* article.background */
+/* time */
+
+.welcome {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+

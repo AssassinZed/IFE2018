@@ -15,6 +15,7 @@ html * {
 }
 
 body {
+    min-width: 1200px;
     font-family: Montserrat Light, sans-serif;
     color: #141414;
 }

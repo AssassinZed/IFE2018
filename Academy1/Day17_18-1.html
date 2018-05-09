@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>第十七天到第十八天，“如果”可以“重来”</title>
+    <style>
+        table td {
+            border: 1px solid #ccc;
+        }
+        
+        p {
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>一、十进制转二进制：</h1>
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+    <button id="trans-btn">转化为二进制</button>
+    <p id="result">运算结果</p>
+
+
+    <h1>二、生成任意阶乘法表：</h1>
+    <input type="number" min="1" max="20" id="inputNum">
+    <button id="newTable">生成</button>
+    <p>算了，还是二十阶以内吧，太多也没用，不是嘛</p>
+    <table id="tb"></table>
+
+
+
+    <script>
+
+
+        // 1.将一个十进制非负整数，转换为二进制
+
+        {
+            let btn = document.getElementById('trans-btn');
+            let para = document.getElementById('result');
+            btn.onclick = function () {
+                let inputNum = document.getElementById('dec-number').value;
+                para.innerHTML = `运算结果为：${dec2bin(inputNum)}`;
+            };
+            function dec2bin(decNumber) {
+                let rem, arr = [];
+                let bit = document.getElementById('bin-bit').value;
+
+                while (Math.trunc(decNumber) > 0) {
+                    rem = decNumber % 2;
+                    arr.unshift(rem);
+                    decNumber = Math.trunc(decNumber / 2);
+                }
+
+                let sup = bit - arr.length;
+                if (sup < 0) {
+                    console.log(new Error('位数过小'));
+                    return arr.join('');
+                } else {
+                    while (sup > 0) {
+                        arr.unshift('0');
+                        sup--;
+                    }
+                    return arr.join('');
+                }
+
+            }
+        }
+
+        // 2.打印 1-100 之间...
+
+        {
+            let num = 100;
+            let arr = [];
+            for (var i = 1; i <= num; i++) {
+                let rem = i % 3;
+                let str = new String(i);
+                if (!rem || str.includes('3')) {
+                    arr.push('PA');
+                } else {
+                    arr.push(i);
+                }
+            }
+            console.table(arr);
+        }
+
+        // 3.九九乘法表
+
+        {
+            let btn = document.getElementById('newTable');
+            btn.onclick = function () {
+
+                let tb = document.querySelector('table');
+                if (tb) {
+                    document.body.removeChild(tb)
+                };
+
+                // 创建新表格并追加
+                let newTb = document.createElement('table');
+                document.body.appendChild(newTb);
+
+                let val = document.getElementById('inputNum').value;
+                if (val >= 0 && val <= 20) {
+                    myFunction(val);
+                }
+
+                function myFunction(row) {
+                    for (var i = 1; i <= row; i++) {
+
+                        // 创建新行并追加
+                        let newTr = document.createElement('tr');
+                        newTb.appendChild(newTr);
+
+                        for (var j = 1; j <= i; j++) {
+                            let res = i * j;
+                            let idx = i * (i - 1) / 2 + j;
+
+                            // 创建新单元格并追加
+                            newTr.appendChild(document.createElement('td'));
+
+                            // 向单元格输入内容
+                            let tdList = document.querySelectorAll('td');
+                            tdList[idx - 1].innerHTML = `${j}*${i}=${res}`;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

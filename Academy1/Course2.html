@@ -249,7 +249,24 @@
             </article>
 
         </section>
+
+        <section class="welcome" id="welcome">
+            <h2></h2>
+        </section>
+
     </div>
+
+    <script>        
+        let h=new Date().getHours();
+        let wel=document.getElementById('welcome');     
+        if(h>=0 && h<5) {wel.innerHTML='凌晨好'};
+        if(h>=5 && h<8) {wel.innerHTML='早上好'};
+        if(h>=8 && h<11) {wel.innerHTML='上午好'};
+        if(h>=11 && h<13) {wel.innerHTML='中午好'};
+        if(h>=13 && h<16) {wel.innerHTML='下午好'};
+        if(h>=16 && h<19) {wel.innerHTML='傍晚好'};
+        if(h>=19 && h<24) {wel.innerHTML='晚上好'};        
+    </script>
 
 </body>
 
