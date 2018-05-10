@@ -285,8 +285,7 @@ li {
 
 .chats {
     width: 400px;
-    border: 1px solid red;
-    padding-left: 25px;
+    border-right: 1px solid #e6e9ec;
     box-sizing: border-box;
 }
 
@@ -295,7 +294,7 @@ li {
 .search {
     width: 100%;
     height: 70px;
-    border: 1px solid red;
+    border: 1px solid #e6e9ec;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -304,23 +303,27 @@ li {
 .search input {
     width: 340px;
     height: 35px;
-    border: 1px solid #333;
-    padding-left: 10px;
+    border: 1px solid #e6e9ec;
+    padding-left: 15px;
+    color: #9fa9ba;
+    font: inherit;
     box-sizing: border-box;
 }
 
 /* ul */
 
-.chats > ul > li {
-
+.chats > ul {
+    width: 400px;
 }
 
 .chat-item {
     padding: 20px 0;
     position: relative;
+    border-bottom: 1px solid #e6e9ec;
 }
 
 .chat-item figure {
+    padding-left: 25px;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -347,7 +350,8 @@ li {
 }
 
 .chat-item p.text {
-    width: 320px;
+    width: 350px;
+    padding-left: 25px;
     margin-top: 15px;
 }
 
@@ -393,14 +397,14 @@ li {
 /* ii.openChat */
 
 .openChat {
-    padding: 10px 20px;
+    padding: 10px 0;
 }
 
 /* ul */
 
 .message-item {
     overflow: hidden;
-    margin: 20px 0;
+    margin: 20px;
 }
 
 .message-item img {
@@ -430,10 +434,64 @@ li {
     color: #7f8fa4;
 }
 
-
 .message4 .photo1 {
     margin-right: 25px;
 }
 
+.right-divider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-divider hr {
+    height: 0;
+    flex: 1;
+}
+
+.right-divider span {
+    margin: 0 20px;
+}
+
+.tuesDivi hr {
+    border-top: 1px solid #9fa9ba;
+}
+
+.newMesDivi hr {
+    border-top: 1px solid #2399f1;   
+}
+
+.newMesDivi span {
+    color: #2399f1;
+}
+
 
 /* createMessage */
+
+.createMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createMessage span {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #9fa9ba;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px 0 0 5px;
+}
+
+.createMessage input {
+    width: 90%;
+    height: 50px;
+    border: 1px solid #9fa9ba;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    padding-left: 20px;
+    color: #585d68;
+    font-size: 14px;
+    font-family: ProximaNova-Regular;
+
+}

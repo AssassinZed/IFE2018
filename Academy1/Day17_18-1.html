@@ -8,11 +8,10 @@
         table td {
             border: 1px solid #ccc;
         }
-        
+
         p {
             font-size: 12px;
         }
-
     </style>
 </head>
 
@@ -24,8 +23,10 @@
     <button id="trans-btn">转化为二进制</button>
     <p id="result">运算结果</p>
 
+    <h1>二、3的小游戏</h1>
+    <p>动动你的小手指，按F12并刷新查看</p>
 
-    <h1>二、生成任意阶乘法表：</h1>
+    <h1>三、生成任意阶乘法表：</h1>
     <input type="number" min="1" max="20" id="inputNum">
     <button id="newTable">生成</button>
     <p>算了，还是二十阶以内吧，太多也没用，不是嘛</p>
@@ -75,7 +76,7 @@
         {
             let num = 100;
             let arr = [];
-            for (var i = 1; i <= num; i++) {
+            for (let i = 1; i <= num; i++) {
                 let rem = i % 3;
                 let str = new String(i);
                 if (!rem || str.includes('3')) {
@@ -108,13 +109,13 @@
                 }
 
                 function myFunction(row) {
-                    for (var i = 1; i <= row; i++) {
+                    for (let i = 1; i <= row; i++) {
 
                         // 创建新行并追加
                         let newTr = document.createElement('tr');
                         newTb.appendChild(newTr);
 
-                        for (var j = 1; j <= i; j++) {
+                        for (let j = 1; j <= i; j++) {
                             let res = i * j;
                             let idx = i * (i - 1) / 2 + j;
 
