@@ -60,7 +60,9 @@ li {
     height: 100%;
     background-color: #1d2531;
     padding-top: 10px;
+    z-index: 9999;
     position: fixed;
+    /* overflow-y: scroll; */
 }
 
 .primary ul {
@@ -102,11 +104,13 @@ li {
     position: fixed;
     left: 100px;
     top: 0;
+    z-index: 9999;
     background-color: #222c3c;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     box-sizing: border-box;
+    /* overflow-y: scroll; */
 }
 
 .secondary > ul {
@@ -222,11 +226,14 @@ li {
 /* 1.base */
 
 .base {
-    width: 100%;
+    min-width: 1550px;
     height: 80px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    padding-left: 350px;
+    background: #fff;
+    z-index: 9998;
     display: flex;
     justify-content: space-between;
     align-items: center;
