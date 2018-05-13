@@ -31,12 +31,18 @@
             </div>
             <img src="">
             <p class="">Some Text</p>
-        </div>      
+        </div>
+
+        <br><h2>动动小手指，点击按钮之后按 F12 查看结果</h2>
+        <button onclick="getAllListItem()">返回页面中所有li标签</button>
+        <button onclick="findAllHtmlSpanInOneSection('news-top')">返回#news-top下所有span中内容为HTML的span标签</button>
+        <button onclick="findListItem('news-normal', 'HTML')">返回#news-normal下所有所包含span内容为HTML的LI标签</button>
+        <button onclick="getActiveLinkContent('news-normal')">返回#news-normal下class为active的链接中包含的文字内容</button>
     </div>
     <script>
 
-    function getAllListItem() {
-        // 返回页面中所有li标签
+    // 返回页面中所有li标签
+    function getAllListItem() {        
         let lists = document.querySelectorAll('li');
         for(let [idx, val] of lists.entries()) {
             console.log(idx, val);
@@ -45,20 +51,37 @@
 
     // getAllListItem();
 
-    function findAllHtmlSpanInOneSection(sectionId) {
-        // 返回某个section下所有span中内容为HTML的span标签
-        let sec = document.getElementById(sectionId);
-        
-
+    // 返回某个section下所有span中内容为HTML的span标签
+    function findAllHtmlSpanInOneSection(sectionId) {        
+        let spans = document.querySelectorAll(`#${sectionId} span`);
+        spans.forEach( val => {
+            if(val.innerHTML == 'HTML') {
+                console.log(val);
+            }
+        })
     }
 
+    // findAllHtmlSpanInOneSection('news-top')
+
+    // 返回某个section下，所有所包含span内容为spanCont的LI标签
     function findListItem(sectionId, spanCont) {
-        // 返回某个section下，所有所包含span内容为spanCont的LI标签
+        let lists = document.querySelectorAll(`#${sectionId} li`);
+        for (let val of lists.values()) {
+            if(val.childNodes[0].innerHTML === spanCont) {
+                console.log(val);
+            }
+        }
     }
 
+    // findListItem('news-normal', 'HTML');
+
+    // 返回某个section下，class为active的链接中包含的文字内容
     function getActiveLinkContent(sectionId) {
-        // 返回某个section下，class为active的链接中包含的文字内容
+        let anchor = document.querySelector(`#${sectionId} .active`);
+        console.log(anchor.textContent);        
     }
+
+    // getActiveLinkContent('news-normal');
 
     </script>
 </body>

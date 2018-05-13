@@ -35,12 +35,17 @@
             <p class="">Some Text</p>
         </div>
         
-            
+        <br><h2>动动小手指，点击按钮之后按 F12 查看结果</h2>
+        <button onclick="getAllListItem()">返回页面中所有li标签</button>
+        <button onclick="findAllHtmlSpanInOneSection('news-top')">返回#news-top下所有span中内容为HTML的span标签</button>
+        <button onclick="findListItem('news-normal', 'HTML')">返回#news-normal下所有所包含span内容为HTML的LI标签</button>
+        <button onclick="getActiveLinkContent('news-normal')">返回#news-normal下class为active的链接中包含的文字内容</button>
+                    
     </div>
     <script>
 
-    function getAllListItem() {
-        // 返回页面中所有li标签
+    // 返回页面中所有li标签
+    function getAllListItem() {        
         let lists = document.getElementsByTagName('li');
         for(let i=0; i < lists.length; i++) {
             console.log(lists[i])
@@ -49,8 +54,8 @@
 
     // getAllListItem();
 
-    function findAllHtmlSpanInOneSection(sectionId) {
-        // 返回某个section下所有span中内容为HTML的span标签
+    // 返回某个section下所有span中内容为HTML的span标签
+    function findAllHtmlSpanInOneSection(sectionId) {        
         let sec = document.getElementById(sectionId);
         let spans = sec.getElementsByTagName('span');
         for(var i=0; i < spans.length; i++) {
@@ -62,11 +67,10 @@
 
     // findAllHtmlSpanInOneSection('news-top');
 
-    function findListItem(sectionId, spanCont) {
-        // 返回某个section下，所有所包含span内容为spanCont的LI标签
+    // 返回某个section下，所有所包含span内容为spanCont的LI标签
+    function findListItem(sectionId, spanCont) {        
         let sec = document.getElementById(sectionId);
         let lists = sec.getElementsByTagName('li');
-        console.log(lists);
         for(let i=0; i<lists.length; i++) {
             if(lists[i].childNodes[0].innerHTML == spanCont) {
                 console.log(lists[i])
@@ -76,8 +80,8 @@
 
     // findListItem('news-normal','HTML');
 
-    function getActiveLinkContent(sectionId) {
-        // 返回某个section下，class为active的链接中包含的文字内容
+    // 返回某个section下，class为active的链接中包含的文字内容
+    function getActiveLinkContent(sectionId) {        
         let sec = document.getElementById(sectionId);
         let anchors = sec.getElementsByTagName('a');
         for(let i=0; i<anchors.length; i++) {
