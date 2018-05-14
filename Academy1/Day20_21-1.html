@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二十到第二十一天：让你和页面对话</title>
+    <style>
+        select {
+            display: none;
+        }
+
+        .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .palette li {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+
+        #erik {
+            background-image: url(http://ife.baidu.com/2016/static/img/erik_ce204002.jpg);
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>1.一个简单的表单</h2>
+    <input id="name" type="text">
+    <button id="submit-btn">Submit</button>
+
+
+    <h2>2.控制元素的显示及隐藏</h2>
+    <label>
+        <input id="school" name="status" type="radio"> School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio"> Company
+    </label>
+
+    <select id="school-select">
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">
+        <option>百度</option>
+        <option>爱奇艺</option>
+    </select>
+
+    <h2>3.取色器</h2>
+    <ul class="palette">
+        <li style="background-color:crimson"></li>
+        <li style="background-color:bisque"></li>
+        <li style="background-color:blueviolet"></li>
+        <li style="background-color:coral"></li>
+        <li style="background-color:chartreuse"></li>
+        <li style="background-color:darkolivegreen"></li>
+        <li style="background-color:cyan"></li>
+        <li style="background-color:#194738"></li>
+    </ul>
+
+    <p class="color-picker"></p>
+
+    <h2>4.淡入淡出动画</h2>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000;opacity: 1;"></div>
+    <button id="fade-btn">淡出</button>
+
+    <h2>5.帧动画</h2>
+    <div id="erik" style="width: 480px; height: 480px"></div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+
+    <script>
+
+        // 1
+        {
+            let input = document.getElementById('name');
+            let btn = document.getElementById('submit-btn');
+            btn.onclick = function () {
+                console.log(input.value);
+            }
+            input.onfocus = function () {
+                onkeydown = function (event) {
+                    if (event.key == 'Enter') {
+                        console.log(input.value)
+                    }
+                    if (event.key == 'Escape') {
+                        input.value = '';
+                    }
+                }
+            }
+        }
+
+        // 2
+        {
+            let inputS = document.getElementById('school');
+            let inputC = document.getElementById('company');
+            let seleS = document.getElementById('school-select');
+            let seleC = document.getElementById('company-select');
+            inputS.onclick = function () {
+                seleS.style.display = 'block';
+                seleS.size = 3;
+                seleC.style.display = 'none';
+            }
+
+            inputC.onclick = function () {
+                seleC.style.display = 'block';
+                seleC.size = 3;
+                seleS.style.display = 'none';
+            }
+        }
+
+        // 3
+        {
+            var list = document.querySelectorAll("li");
+            for (var i = i = 0, len = list.length; i < len; i++) {
+                list[i].onclick = function (e) {
+                    var t = e.target;
+                    var c = t.style.backgroundColor;
+                    var p = document.getElementsByClassName("color-picker")[0]
+                    p.innerHTML = c;
+                    p.style.color = c;
+                }
+            }
+        }
+
+        // 4
+        {
+            let div = document.getElementById('fade-obj');
+            let btn = document.getElementById('fade-btn');
+            // let i = 1;
+            // let j = 0;
+
+            let opa = Number(div.style.opacity);
+            if (opa > 0) {
+                btn.onclick = fadeOut;
+            };
+
+            function fadeOut() {
+                btn.disabled = true;
+                let decOpa = setInterval(function () {
+                    opa = opa - 0.05;
+                    if (opa <= 0) {
+                        clearInterval(decOpa);
+                        btn.disabled = false;
+                        btn.textContent = '淡入';
+                        btn.onclick = fadeIn;
+                    } else {
+                        div.style.opacity = `${opa}`;
+                    };
+                    return opa;
+                }, 50)
+            }
+
+            function fadeIn() {
+                btn.disabled = true;
+                let incrOpa = setInterval(function () {
+                    opa = opa + 0.05;
+                    if (opa >= 1) {
+                        clearInterval(incrOpa);
+                        btn.disabled = false;
+                        btn.textContent = '淡出';
+                    } else {
+                        div.style.opacity = `${opa}`;
+                    }                    
+                }, 50)
+            }
+        }
+
+
+        {
+            let div = document.getElementById('erik');
+            let startDiv = document.getElementById('start');
+            let stopDiv = document.getElementById('stop');
+            let i = -8160;
+            startDiv.onclick = function () {
+
+                let changePos = setInterval(function () {
+                    i = i + 480;
+                    div.style.backgroundPosition = `0 ${i}px`;
+                    if (i >= 0) { i = -8160 }
+                }, 100);
+
+                stopDiv.onclick = function() {
+                    clearInterval(changePos);
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
