@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第三十四天到第三十六天 我是精明的小卖家（二）之小练习</title>
+    <style>
+        h2 {
+            margin-bottom: 60px;
+        }       
+        .text {
+            font-size: 40px
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>一、SVG小练习</h2>
+    <svg width='1024' height='200' xmlns='http://www.w3.org/2000/svg'>
+        <line x1='0' y1='50' x2='100' y2='50' stroke='black' />
+        <rect x='150' y='0' width='100' height='100' />
+        <circle cx='350' cy='50' r='50' />
+        <text x='450' y='50' class="text">IFE</text>
+    </svg>
+
+    <h2>二、Canvas小练习</h2>
+    <canvas id="canvas" width="1024" height="768"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        
+        // 绘制一条线
+        ctx.beginPath();
+        ctx.moveTo(0, 50);
+        ctx.lineTo(100, 50);
+        ctx.strokeStyle = 'red';
+        ctx.stroke();
+
+        // 绘制一个矩形
+        ctx.beginPath();
+        ctx.moveTo(150,0);
+        ctx.lineTo(250,0);
+        ctx.lineTo(250,100);
+        ctx.lineTo(150,100);
+        ctx.closePath();
+        ctx.strokeStyle='blue';
+        ctx.stroke();
+        
+        // 绘制一个圆形
+        ctx.beginPath();
+        ctx.arc(350,50,50,0,2*Math.PI);
+        ctx.strokeStyle='red';
+        ctx.stroke();
+
+        // 显示一些文字
+        ctx.font='40px serif';
+        ctx.fillText('IFE',450,50);
+
+        //
+
+
+    </script>
+
+</body>
+
+</html>

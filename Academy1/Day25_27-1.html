@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二十五天到第二十七天 倒数开始 滴答滴 滴答滴</title>
+    <style>
+        /* #one {
+            position: relative;
+        } */
+
+        .move {
+            position: absolute;
+            left: 500px;
+            top: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="one">
+        <h2>编码一</h2>
+        <p>请按F12查看控制台</p>
+        <button onclick="testGoSteps()">测试GoSteps()函数</button>
+        <script>
+            function Go() {
+                console.log('^_^');
+            }
+
+            function GoSteps(n) {
+                console.log(`GoSteps(${n})`);
+
+                if (n === undefined) {  // 忽略参数，视为1，注意不能为==
+                    return Go();
+                }
+
+                if (n < 0) return;
+
+                n = Math.floor(n);  //  向下取整 
+                while (n--) {
+                    Go();
+                }
+            }
+
+            function testGoSteps() {
+                GoSteps(10); // Go 10次
+                GoSteps(1); // Go 1次
+                GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
+                GoSteps(0);  // 0次
+                GoSteps(-1);  // 0次
+                GoSteps(1.4);  // Go 1次
+                GoSteps(1.6);  // Go 1次
+                GoSteps(-1);  // 0次
+                GoSteps(true);  // Go 1次
+                GoSteps(false);  // 0次
+                GoSteps("Test");  // 0次
+                GoSteps(NaN);  // 0次
+                GoSteps(null);  // 0次
+            }
+        </script>
+    </section>
+
+    <section id="two">
+        <h2>编码二~四</h2>
+        <p id="clock1"></p>
+        <p id="clock2"></p>
+        <script>
+            let para1 = document.querySelector('#clock1');
+            let para2 = document.querySelector('#clock2');
+
+            // 修正数字
+            function revNum(num) {
+                num = (num < 10 ? '0' : '') + num;
+                return num;
+            }
+
+            function getWeekday(date, useCn) {
+                let arr;
+                if (useCn) {
+                    arr = ['日', '一', '二', '三', '四', '五', '六'];
+                } else {
+                    arr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                }
+                return arr[date.getDay()];
+            }
+
+            function showTime(useCn) {
+                let date = new Date();
+                let y = date.getFullYear();
+                let m = date.getMonth() + 1;
+                let d = date.getDate();
+                let hours = date.getHours();
+                let mins = date.getMinutes();
+                let secs = date.getSeconds();
+                if (useCn) {
+                    return `${y}年${revNum(m)}月${revNum(d)}日 星期${getWeekday(date, useCn)} ${revNum(hours)}:${revNum(mins)}:${revNum(secs)}`;
+                } else {
+                    if (hours > 12) {
+                        hours -= 12;
+                        return `${y}-${revNum(m)}-${revNum(d)} ${getWeekday(date, useCn)} ${revNum(hours)}:${revNum(mins)}:${revNum(secs)} PM`;
+                    } else {
+                        return `${y}-${revNum(m)}-${revNum(d)} ${getWeekday(date, useCn)} ${revNum(hours)}:${revNum(mins)}:${revNum(secs)} AM`
+                    }
+                }
+            }
+
+            setInterval(function () {
+                para1.textContent = showTime(true);
+            }, 200);
+
+            setInterval(function () {
+                para2.textContent = showTime(false);
+            }, 200);
+
+        </script>
+    </section>
+
+    <section id="five">
+        <h2>编码五</h2>
+        <select id="year-select"></select>
+
+        <select id="month-select"></select>
+
+        <select id="day-select">
+            <option value="1" selected>1</option>
+        </select>
+
+        <select id="hour-select"></select>
+
+        <select id="minite-select"></select>
+
+        <select id="second-select"></select>
+
+        <p id="result-wrapper"></p>
+
+
+        <script>
+
+
+            // 编码五
+            {
+                let para = document.querySelector('#result-wrapper');
+
+                let selectList = document.querySelectorAll('select');
+                let year_select = document.getElementById('year-select');
+                let month_select = document.getElementById('month-select');
+                let day_select = document.getElementById('day-select');
+                let hour_select = document.getElementById('hour-select');
+                let minite_select = document.getElementById('minite-select');
+                let second_select = document.getElementById('second-select');
+
+                const ms_day = 24 * 60 * 60 * 1000;
+                const ms_hour = 60 * 60 * 1000;
+                const ms_min = 60 * 1000;
+                const ms_sec = 1000;
+
+                // 创建年份option，限定1970至2040
+                for (let i = 1970; i < 2040; i++) {
+                    year_select.innerHTML += `<option>${i}</option>`;
+                }
+
+                // 创建月份option
+                for (let j = 1; j < 13; j++) {
+                    month_select.innerHTML += `<option>${j}</option>`;
+                }
+
+                // 创建日option，见下文 
+
+                // 创建小时option
+                for (let p = 0; p < 24; p++) {
+                    hour_select.innerHTML += `<option>${p}</option>`;
+                }
+
+                // 创建分钟、秒值option
+                for (let q = 0; q < 60; q++) {
+                    minite_select.innerHTML += `<option>${q}</option>`;
+                    second_select.innerHTML += `<option>${q}</option>`;
+                }
+
+
+
+
+                // 修正数字
+                function revNum(num) {
+                    num = (num < 10 ? '0' : '') + num;
+                    return num;
+                }
+
+                // 获取星期值
+                function getWeekday(date) {
+                    let arr = ['日', '一', '二', '三', '四', '五', '六'];
+                    return arr[date.getDay()];
+                }
+
+                // 获取选项
+                function getOption(id) {
+                    let selectedOption = document.getElementById(id).selectedOptions[0];
+                    return Number(selectedOption.value);
+                }
+
+                // 获取差值
+                function getDiff() {
+
+                    // 获取选定option的内容
+                    let y = getOption('year-select');
+                    let m = getOption('month-select') - 1;
+                    let d = getOption('day-select');
+                    let hour = getOption('hour-select');
+                    let min = getOption('minite-select');
+                    let sec = getOption('second-select');
+
+                    // 将选定option的内容转换为Date对象
+                    let user_date = new Date(y, m, d, hour, min, sec);
+
+                    let ms_input = user_date.getTime();
+                    let ms_now = Date.now();
+                    let diff = ms_now - ms_input;    //  获取总差值
+                    let beforeNow = true;
+                    if (diff < 0) {
+                        diff = -diff;
+                        beforeNow = !beforeNow;    //  所选时间晚于现在时间时：取反
+                    };
+
+                    let diff_day = parseInt(diff / ms_day);    //  差的天数
+
+                    let extraMs_day = diff % ms_day;    //  剩余秒数（小于一天）
+                    let diff_hour = parseInt(extraMs_day / ms_hour);    //  差的小时数
+
+                    let extraMs_hour = extraMs_day % ms_hour;    //  剩余秒数（小于一小时）
+                    let diff_min = parseInt(extraMs_hour / ms_min);    //  差的分钟数
+
+                    let extraMs_min = extraMs_hour % ms_min;    //  剩余秒数（小于一分钟）
+                    let diff_sec = parseInt(extraMs_min / ms_sec);    //  差的秒数
+
+                    return [y, m + 1, d, hour, min, sec, getWeekday(user_date), diff_day, diff_hour, diff_min, diff_sec, beforeNow];
+                }
+
+                // 由年份和月份，确定每月的天数
+                function getDays(year, month) {
+                    let days;
+                    if (String(month).match(/[469(11)]/)) {
+                        days = 30;
+                    } else if (month === 2) {
+                        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                            days = 29;
+                        } else {
+                            days = 28;
+                        }
+                    } else {
+                        days = 31;
+                    }
+                    return days;
+                }
+
+                // 创建日option
+                function addDayOption(days) {
+                    for (let k = 2; k < days + 1; k++) {
+                        day_select.innerHTML += `<option>${k}</option>`;
+                    }
+                }
+
+                // 变更 select 的选项时，更新 #result-wrapper 的内容
+                selectList.forEach((val, idx) => {
+                    val.addEventListener('change', function () {
+                        let a = getDiff();
+                        if (a[11]) {    //  a[11] 对应 beforeNow
+                            para.textContent = `现在距离 ${a[0]}年${a[1]}月${a[2]}日星期${a[6]} ${revNum(a[3])}:${revNum(a[4])}:${revNum(a[5])} 已经过去 ${a[7]} 天 ${a[8]} 小时 ${a[9]} 分 ${a[10]} 秒`;
+                        } else {
+                            para.textContent = `现在距离 ${a[0]}年${a[1]}月${a[2]}日星期${a[6]} ${revNum(a[3])}:${revNum(a[4])}:${revNum(a[5])} 还有 ${a[7]} 天 ${a[8]} 小时 ${a[9]} 分 ${a[10]} 秒`;
+                        }
+                    })
+                })
+
+                // 文档加载完成时，初始化 #result-wrapper 的内容
+                window.onload = function () {
+                    let a = getDiff();
+                    para.textContent = `现在距离 ${a[0]}年${a[1]}月${a[2]}日星期${a[6]} ${revNum(a[3])}:${revNum(a[4])}:${revNum(a[5])} 已经过去 ${a[7]} 天 ${a[8]} 小时 ${a[9]} 分 ${a[10]} 秒`;
+                }
+            }
+        </script>
+    </section>
+</body>
+
+</html>

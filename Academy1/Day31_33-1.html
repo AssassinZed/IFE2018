@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第三十一到第三十三天：我是精明的小卖家（一）</title>
+    <style>        
+        #container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        div {
+            margin: 20px 0;
+        }
+
+        div#radios {
+            margin-left: 100px;
+        }
+
+        div#graphs {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        svg,
+        canvas {
+            border: 1px solid red;
+            /* transform: translateY(-70px) scale(0.7, 0.7); */
+        }
+
+        svg text {
+            font-size: 10px;
+        }
+
+        svg line {
+            stroke-width: 1px;
+        }
+
+        svg line.axis {
+            stroke-width: 2px;
+        }
+
+        th,
+        td {
+            width: 70px;
+            height: 40px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="radios">
+            <div id="region-radio-wrapper"></div>
+            <div id="product-radio-wrapper"></div>
+        </div>
+        <div id="graphs">
+            <svg id="svg" width='700' height='700'></svg>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="table-wrapper"></div>
+    </div>
+
+    <script src="./js/checkbox.js"></script>
+    <script src="./js/handle.js"></script>
+    <script src="./js/table.js"></script>
+    <script src="./js/line.js"></script>
+    <script src="./js/bar.js"></script>
+    <script src="./js/app.js"></script>
+
+</body>
+
+</html>

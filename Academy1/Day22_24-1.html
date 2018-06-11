@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二十二天到第二十四天：JavaScript里面的居民们-编码一</title>
+    <style>
+        button {
+            font-size: 12px;
+            color: #333;
+            letter-spacing: .6px;
+            height: 30px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="one">
+        <h2>编码一</h2>
+        <div id="form1">
+
+            <label>Number A:
+                <input id="radio-a" type="radio" name="math-obj" value="a">
+            </label>
+            <input id="num-a" type="text">
+
+            <label>Number B:
+                <input id="radio-b" type="radio" name="math-obj" value="b">
+            </label>
+            <input id="num-b" type="text">
+
+        </div>
+        <p>结果如右：
+            <span id="result1"></span>
+        </p>
+        <div id="btnBox1">
+            <button>判断当前选中的输入框输入内容是否为数字</button>
+            <button>把 A 四舍五入为 B 个小数位数的数字</button>
+            <button>当前选中数字的绝对值</button>
+            <button>对当前选中的数字进行上舍入</button>
+            <button>对当前选中的数字进行下舍入</button>
+            <button>把当前选中的数字四舍五入为最接近的整数</button>
+            <button>返回 A 和 B 中的最高值</button>
+            <button>返回 A 和 B 中的最低值</button>
+        </div>
+        <script>
+            let form1 = document.getElementById('form1');
+            let radioList1 = form1.querySelectorAll("[type='radio']");
+            let textList1 = form1.querySelectorAll("[type='text']");
+            let resultBox1 = document.getElementById('result1');
+            let btnBox1 = document.getElementById('btnBox1');
+            let btnList1 = btnBox1.querySelectorAll('button');
+
+            // 第一个按钮
+            btnList1[0].onclick = function () {
+                radioList1.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        resultBox1.textContent = isNaN(textList1[idx].value) === false ? '是数字，没毛病' : '不是数字，老铁'
+                    }
+                })
+            }
+
+            // 其他按钮
+            for (let i = 1; i < btnList1.length; i++) {
+
+                btnList1[i].onclick = function () {
+                    let val1 = textList1[0].value;
+                    let val2 = textList1[1].value;
+                    if (isNaN(val1) || isNaN(val2)) {
+                        resultBox1.textContent = '出错了';
+                        console.log(new Error('Not a number'));
+                    } else {
+                        switch (i) {
+                            case 1:
+                                resultBox1.textContent = Number(val1).toFixed(Number(val2));
+                                break;
+                            case 2:
+                                radioList1.forEach(function (val, idx) {
+                                    if (val.checked === true) {
+                                        resultBox1.textContent = Math.abs(textList1[idx].value)
+                                    }
+                                });
+                                break;
+                            case 3:
+                                radioList1.forEach(function (val, idx) {
+                                    if (val.checked === true) {
+                                        resultBox1.textContent = Math.ceil(textList1[idx].value)
+                                    }
+                                });
+                                break;
+                            case 4:
+                                radioList1.forEach(function (val, idx) {
+                                    if (val.checked === true) {
+                                        resultBox1.textContent = Math.floor(textList1[idx].value)
+                                    }
+                                });
+                                break;
+                            case 5:
+                                radioList1.forEach(function (val, idx) {
+                                    if (val.checked === true) {
+                                        resultBox1.textContent = Math.round(textList1[idx].value)
+                                    }
+                                });
+                                break;
+                            case 6:
+                                resultBox1.textContent = Math.max(val1, val2);
+                                break;
+                            case 7:
+                                resultBox1.textContent = Math.min(val1, val2);
+                                break;
+                        }
+                    }
+                }
+            }
+        </script>
+    </section>
+
+    <section id="two">
+        <h2>编码二</h2>
+        <div id="form2">
+
+            <label>String A:
+                <input id="radio-a" type="radio" checked="true" name="str-obj" value="a">
+            </label>
+            <textarea id="str-a"></textarea>
+
+            <label>String B:
+                <input id="radio-b" type="radio" name="str-obj" value="b">
+            </label>
+            <textarea id="str-b"></textarea>
+
+            <label>Num A：
+                <input id="num-a" type="number" value="0">
+            </label>
+
+            <label>Num B：
+                <input id="num-b" type="number" value="1">
+            </label>
+
+        </div>
+        <p>结果如右：
+            <span id="result2"></span>
+        </p>
+        <div id="btnBox2">
+            <button>获取当前选中输入的内容长度</button>
+            <button>当前选中输入中的第3个字符</button>
+            <button>把两个输入框的文字连接在一起输出（concat）</button>
+            <button>输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+            <button>输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+            <button>使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+            <button>当前选中输入框的行数</button>
+            <button>使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+            <button>把所选输入框中的内容全部转为大写</button>
+            <button>把所选输入框中的内容全部转为小写</button>
+            <button>把所选输入框中内容的半角空格全部去除</button>
+            <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+        </div>
+        <script>
+            let form2 = document.getElementById('form2');
+            let radioList2 = form2.querySelectorAll("[type='radio']");
+            let textareas = form2.querySelectorAll('textarea');
+            let nums = form2.querySelectorAll("[type='number']");
+            let resultBox2 = document.getElementById('result2');
+            let btnBox2 = document.getElementById('btnBox2');
+            let btnList2 = btnBox2.querySelectorAll('button');
+
+            btnList2[0].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        resultBox2.textContent = textareas[idx].textLength;
+                    }
+                })
+            }
+
+            btnList2[1].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        resultBox2.textContent = textareas[idx].value[2];
+                    }
+                })
+            }
+
+            btnList2[2].onclick = function () {
+                let str1 = textareas[0].value;
+                let str2 = textareas[1].value;
+                resultBox2.textContent = str1.concat(str2);
+            }
+
+            btnList2[3].onclick = function () {
+                let str1 = textareas[0].value;
+                let str2 = textareas[1].value;
+                resultBox2.textContent = str1.indexOf(str2);
+            }
+
+            btnList2[4].onclick = function () {
+                let str1 = textareas[0].value;
+                let str2 = textareas[1].value;
+                resultBox2.textContent = str2.lastIndexOf(str1);
+            }
+
+            btnList2[5].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        let num1 = Number(nums[0].value);
+                        let num2 = Number(nums[1].value);
+                        resultBox2.textContent = textareas[idx].value.slice(num1, num2);
+                    }
+                })
+            }
+
+            btnList2[6].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        resultBox2.textContent = textareas[idx].rows;
+                    }
+                })
+            }
+
+            btnList2[7].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        let num1 = Number(nums[0].value);
+                        let num2 = Number(nums[1].value);
+                        resultBox2.textContent = textareas[idx].value.substr(num1, num2);
+                    }
+                })
+            }
+
+            btnList2[8].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        textareas[idx].value = textareas[idx].value.toUpperCase();
+                    }
+                })
+            }
+
+            btnList2[9].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        textareas[idx].value = textareas[idx].value.toLowerCase();
+                    }
+                })
+            }
+
+            btnList2[10].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        textareas[idx].value = textareas[idx].value.replace(/ /g, '');
+                    }
+                })
+            }
+
+            btnList2[11].onclick = function () {
+                radioList2.forEach(function (val, idx) {
+                    if (val.checked === true) {
+                        if (idx === 0) {
+                            textareas[0].value = textareas[0].value.replace(/a/g, textareas[1].value);
+                        } else {
+                            textareas[1].value = textareas[1].value.replace(/a/g, textareas[0].value);
+                        }
+                    }
+                })
+            }
+        </script>
+    </section>
+
+    <section id="three">
+        <h2>编码三</h2>
+        <p>请按F12查看控制台</p>
+        <button onclick="printResult1()">字符串头尾去空格</button>
+        <button onclick="printResult2()">去除字符串连续重复</button>
+        <script>
+            /*
+            实现一个字符串头尾去除空格的函数
+            注意需要去除的空格，包括全角、半角空格
+            暂时不需要学习和使用正则表达式的方式
+            */
+            function diyTrim(str) {
+                var result = "";
+                result += str.trim();
+                return result;
+            }
+
+            function printResult1() {
+                console.log(diyTrim(' a f b    ')); // ->a f b
+                console.log(diyTrim('    ffdaf    ')); // ->ffdaf
+                console.log(diyTrim('1    ')); // ->1
+                console.log(diyTrim('　　f')); // ->f
+                console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
+                console.log(diyTrim(' ')); // ->
+                console.log(diyTrim('　')); // ->
+                console.log(diyTrim('')); // ->
+            }
+
+            /* 去掉字符串str中，连续重复的地方 */
+            function removeRepetition(str) {
+                if (!str) return ''; // 若为空字符串，则直接返回结果
+                var result = "";
+                for (let i = 0; i < str.length; i++) {
+                    // 第一个字符无需检查，直接存入result
+                    if (i !== 0 && str[i] === str[i - 1]) continue;
+                    result += str[i];
+                };
+                return result;
+            }
+
+            function printResult2() {
+                console.log(removeRepetition("aaa")); // ->a
+                console.log(removeRepetition("abbba")); // ->aba
+                console.log(removeRepetition("aabbaabb")); // ->abab
+                console.log(removeRepetition("")); // ->
+                console.log(removeRepetition("abc")); // ->abc
+            }
+        </script>
+    </section>
+
+    <section id="four">
+        <h2>编码四</h2>
+        <p>请按F12查看控制台</p>
+        <button onclick="exec1()">根据输入name找到对应的id</button>
+        <button onclick="exec2()">根据输入id找到对应的name</button>
+        <button onclick="getListWithDLR()">前序遍历输出对象中所有名字</button>
+        <button onclick="getListWithLDR()">中序遍历输出对象中所有名字</button>
+        <button onclick="getListWithLRD()">后序遍历输出对象中所有名字</button>
+        <script>
+            var tree = {
+                "id": 0,
+                "name": "root",
+                "left": {
+                    "id": 1,
+                    "name": "Simon",
+                    "left": {
+                        "id": 3,
+                        "name": "Carl",
+                        "left": {
+                            "id": 7,
+                            "name": "Lee",
+                            "left": {
+                                "id": 11,
+                                "name": "Fate"
+                            }
+                        },
+                        "right": {
+                            "id": 8,
+                            "name": "Annie",
+                            "left": {
+                                "id": 12,
+                                "name": "Saber"
+                            }
+                        }
+                    },
+                    "right": {
+                        "id": 4,
+                        "name": "Tony",
+                        "left": {
+                            "id": 9,
+                            "name": "Candy"
+                        }
+                    }
+                },
+                "right": {
+                    "id": 2,
+                    "name": "right",
+                    "left": {
+                        "id": 5,
+                        "name": "Carl",
+                    },
+                    "right": {
+                        "id": 6,
+                        "name": "Carl",
+                        "right": {
+                            "id": 10,
+                            "name": "Kai"
+                        }
+                    }
+                }
+            }
+
+            // 调用 1
+            function exec1() {
+                console.log(findIdByName('Kai'));
+                console.log(findIdByName('Tony'));
+                console.log(findIdByName('Fate'));
+                console.log(findIdByName('root'));
+                console.log(findIdByName('Varsha'));
+                console.log(findIdByName(''));
+            }
+
+            // 假设id和name均不会重复，根据输入name找到对应的id
+            function findIdByName(name) {
+                let result;
+                loop(tree);
+                function loop(obj) {
+                    for (let [key, val] of Object.entries(obj)) {
+                        if (key == 'name' && val == name) {
+                            result = obj['id'];
+                            return;
+                        } else if (key == 'left' || key == 'right') {
+                            loop(obj[key]);  // obj[key] 整体又作为loop()函数的参数
+                        }
+                    }
+                };
+                return result != undefined ? result : '不存在';
+            }
+
+            // 调用 2
+            function exec2() {
+                console.log(findNameById(10));
+                console.log(findNameById(7));
+                console.log(findNameById(3));
+                console.log(findNameById(0));
+                console.log(findNameById(20));
+            }
+
+            // 假设id和name均不会重复，根据输入id找到对应的name
+            function findNameById(id) {
+                let result;
+                loop(tree);
+                function loop(obj) {
+                    for (let [key, val] of Object.entries(obj)) {
+                        if (key == 'id' && val == id) {
+                            result = obj['name'];
+                            return;
+                        } else if (key == 'left' || key == 'right') {
+                            loop(obj[key]);  // obj[key] 整体又作为loop()函数的参数
+                        }
+                    }
+                };
+                return result != undefined ? result : '不存在';
+            }
+
+            // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+            function getListWithDLR() {
+                loop(tree);
+                function loop(obj) {
+                    console.log(obj.id)
+                    if (obj.left) loop(obj.left);
+                    if (obj.right) loop(obj.right);
+                }
+            }
+
+            // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+            function getListWithLDR() {
+                loop(tree);
+                function loop(obj) {
+                    if (obj.left) loop(obj.left);
+                    console.log(obj.id);
+                    if (obj.right) loop(obj.right);
+                }
+            }
+
+            // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+            function getListWithLRD() {
+                loop(tree);
+                function loop(obj) {
+                    if (obj.left) loop(obj.left);
+                    if (obj.right) loop(obj.right);
+                    console.log(obj.id);
+                }
+            }
+        </script>
+    </section>
+
+    <section id="five">
+        <h2>编码五</h2>
+        <input id="queue-input" type="text">
+        <p id="queue-cont">队列内容：apple-&gt;pear</p>
+        <button id="in-btn">入队</button>
+        <button id="out-btn">出队</button>
+        <button id="font-btn">打印队头元素内容</button>
+        <button id="empty-btn">判断队列是否为空</button>
+        <button id="reverse-btn">反转队列</button>
+        <script>
+            let queue = ["apple", "pear"];
+            let input = document.getElementById('queue-input');
+            let para = document.getElementById('queue-cont');
+            let sec5 = document.getElementById('five');
+            let btnList5 = sec5.querySelectorAll('button');
+            btnList5[0].onclick = function () {
+                if (!input.value) {
+                    alert('请输入内容')
+                } else {
+                    queue.push(input.value);
+                    para.textContent = '队列内容：' + queue.join('->');
+                }
+            }
+
+            btnList5[1].onclick = function () {
+                queue.pop();
+                para.textContent = '队列内容：' + queue.join('->');
+            }
+
+            btnList5[2].onclick = function () {
+                let len = queue.length;
+                alert(queue[len - 1]);
+            }
+
+            btnList5[3].onclick = function () {
+                alert(queue.length === 0 ? '队列为空' : '队列不为空')
+            }
+
+            btnList5[4].onclick = function () {
+                para.textContent = '队列内容：' + queue.reverse().join('<-');
+            }
+        </script>
+    </section>
+
+    <section id="six">
+        <h2>编码六</h2>
+        <p>请按F12控制台查看</p>
+
+        <p>[43, 54, 4, -4, 84, 100, 58, 27, 140]</p>
+        <button onclick="sort1()">按值排序</button>
+        <p>['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane']</p>
+        <button onclick="sort2()">按字母顺序排序</button>
+        <p>[[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]]</p>
+        <button onclick="sort3()">按每个元素第二个数从大到小排序</button>
+        <p>[ {id: 1, name: 'candy', value: 40}, {id: 2, name: 'Simon', value: 50}, {id: 3,name: 'Tony', value: 45}, {id: 4,
+            name: 'Annie', value: 60} ]</p>
+        <button onclick="sort4()">按元素对象的value值从小到大排序</button>
+
+
+        <script>
+            var arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+            function sort1() {
+                console.log('从大到小：' + arr1.sort((a, b) => b - a));
+                console.log('从小到大：' + arr1.reverse());
+            }
+
+            var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+            function sort2() {
+                console.log('a-z：' + arr2.sort());
+                console.log('z-a：' + arr2.reverse());
+            }
+
+            var arr3 = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+            function sort3() {
+                arr3.sort((a, b) => b[1] - a[1]);
+                console.log(arr3);
+            }
+
+            var arr4 = [
+                {
+                    id: 1,
+                    name: 'candy',
+                    value: 40
+                }, {
+                    id: 2,
+                    name: 'Simon',
+                    value: 50
+                }, {
+                    id: 3,
+                    name: 'Tony',
+                    value: 45
+                }, {
+                    id: 4,
+                    name: 'Annie',
+                    value: 60
+                }
+            ];
+            function sort4() {
+                arr4.sort((a, b) => a.value - b.value);
+                console.log(arr4);
+            }
+        </script>
+    </section>
+
+    <section id="seven">
+        <h2>编码七</h2>
+        <p>请按F12查看控制台</p>
+        <p>{ "Tony": {"Math": 95,"English": 79,"Music": 68}, "Simon": {"Math": 100,"English": 95,"Music": 98}, "Annie": {"Math": 54,"English": 65,"Music": 88} }</p>
+        <button onclick="transfer1()">对象转换为数组</button>
+        <p>[ [1, "Area1", -1], [2, "Area2", -1], [3, "Area1-1", 1], [4, "Area1-2", 1],[5, "Area2-1", 2],[6, "Area2-2", 2], [7, "Area1-2-3", 4],[8, "Area2-2-1", 6] ]</p>
+        <button onclick="transfer2()">数组转换为对象</button>
+        <script>
+            // 对象转换为数组：
+            var scoreObject = {
+                "Tony": {
+                    "Math": 95,
+                    "English": 79,
+                    "Music": 68
+                },
+                "Simon": {
+                    "Math": 100,
+                    "English": 95,
+                    "Music": 98
+                },
+                "Annie": {
+                    "Math": 54,
+                    "English": 65,
+                    "Music": 88
+                }
+            }
+
+            function ObjectToArray(obj) {
+                let arr = [];
+                for (let [key, val] of Object.entries(obj)) {
+                    let arrIn = Object.values(val);
+                    arrIn.unshift(key);
+                    arr.push(arrIn);
+                }
+                return arr;
+            }
+
+            function transfer1() {
+                console.log(ObjectToArray(scoreObject));
+            }
+
+            // 数组转换为对象：
+            var menuArr = [
+                [1, "Area1", -1],
+                [2, "Area2", -1],
+                [3, "Area1-1", 1],
+                [4, "Area1-2", 1],
+                [5, "Area2-1", 2],
+                [6, "Area2-2", 2],
+                [7, "Area1-2-3", 4],
+                [8, "Area2-2-1", 6],
+            ];
+
+            function ArrayToObject(arr) {
+
+            }
+
+            function transfer2() {
+
+            }
+
+        </script>
+    </section>
+
+</body>
+
+</html>

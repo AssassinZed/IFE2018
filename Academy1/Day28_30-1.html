@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二十八天到第三十天 给爱的人发个邮件吧</title>
+    <style>
+        #email-input {
+            width: 300px;
+            height: 30px;
+        }
+
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            display: none;
+        }
+
+        li {
+            width: 300px;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-top: none;
+            line-height: 30px;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        li:hover {
+            background-color: #BCE0E5;
+        }
+
+        .selected {
+            background-color: #FFC4CF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug">
+
+        </ul>
+    </div>
+
+    <script>
+
+        let input = document.getElementById('email-input');
+        let ul = document.getElementById('email-sug-wrapper');
+        let postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+        let nowSelectTipIndex = 0;    //  存储当前选中的提示Li的序号
+
+        input.focus();    //  默认input获取焦点
+
+        // 按下按键调用以下多个函数
+        input.onkeyup = function (e) {
+            let val = getUserInput();
+            let str = createTip(val);
+            renderTip(str);
+            displayTip(val);
+
+            // 特殊3个键的键盘事件
+            let lis = ul.querySelectorAll('li');
+            let len = lis.length;    //  获取当前li的个数
+            if (ul.style.display === 'block' && len > 0) {  //  在有提示框的情况下
+                lis[0].className = 'selected';    //  设置第一个li默认被选中
+                switch (e.code) {
+                    case 'ArrowUp':
+                        nowSelectTipIndex = nowSelectTipIndex === 0 ? len - 1 : nowSelectTipIndex - 1;
+                        lis[0].className = '';
+                        lis[nowSelectTipIndex].className = 'selected';    //  设置被选中li的class
+                        break;
+                    case 'ArrowDown':
+                        nowSelectTipIndex = nowSelectTipIndex === len - 1 ? 0 : nowSelectTipIndex + 1;
+                        lis[0].className = '';
+                        lis[nowSelectTipIndex].className = 'selected';    //  设置被选中li的class
+                        break;
+                    case 'Enter':
+                        input.value = lis[nowSelectTipIndex].textContent;    //  未解码？
+                        ul.style.display = 'none';
+                        nowSelectTipIndex = 0;    //  设置被选中li的class
+                        break;
+                };
+
+            }
+
+        }
+
+        // 获取用户输入
+        function getUserInput() {
+            return input.value.trim();
+        }
+
+        // 生成提示内容
+        function createTip(data) {
+            let str = '';
+            let extraStr = '';  //  @之后的字符串，初始值为空字符串
+            let n = data.indexOf('@');  // n为-1表示不存在
+            if (n !== -1) {
+                extraStr = data.substring(n + 1);  // 获取@之后的子字符串
+                data = data.substring(0, n);  // 将@之前的子字符串赋给data
+            };
+            for (let i = 0; i < postfixList.length; i++) {
+                if (postfixList[i].startsWith(extraStr)) {    //  只使用以extraStr开头的数组元素
+                    str += `<li>${data}@${postfixList[i]}</li>`;
+                }
+            };
+            return str;
+        }
+
+        // 渲染提示内容
+        function renderTip(str) {
+            ul.innerHTML = str;
+        }
+
+        // 控制提示内容的显示/隐藏
+        function displayTip(val) {
+            ul.style.display = val === '' ? 'none' : 'block';
+        }
+
+        // 鼠标点击提示内容将其输入框中，同时隐藏提示框
+        ul.onclick = function (e) {
+            if (e.target.tagName.toLowerCase() === 'li') {    //  排除li标签的父元素
+                input.value = e.target.textContent;
+                ul.style.display = 'none';
+            }
+        }
+
+        // 转码与解码 ？
+
+        // 重置选中状态
+        function resetSelectStatus() {
+            nowSelectTipIndex = 0;
+            return nowSelectTipIndex;
+        }
+
+
+    </script>
+</body>
+
+</html>
