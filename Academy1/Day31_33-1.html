@@ -13,14 +13,28 @@
         }
 
         div {
-            margin: 20px 0;
+            margin: 10px 0;
         }
 
-        div#radios {
+        [type='checkbox'] {
+            margin: 0 8px;
+        }
+
+        #radios {
             margin-left: 100px;
         }
 
-        div#graphs {
+        #region-radio-wrapper,
+        #product-radio-wrapper {
+            width: 300px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border: 3px solid #ccc;
+        }
+
+        #graphs {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -44,12 +58,16 @@
             stroke-width: 2px;
         }
 
+        table {
+            border-collapse: collapse;
+        }
         th,
         td {
-            width: 70px;
-            height: 40px;
+            width: 80px;
+            height: 30px;
             border: 1px solid #ccc;
             text-align: center;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -60,18 +78,18 @@
             <div id="region-radio-wrapper"></div>
             <div id="product-radio-wrapper"></div>
         </div>
-        <div id="graphs">
+        <!-- <div id="graphs">
             <svg id="svg" width='700' height='700'></svg>
             <canvas id="canvas"></canvas>
-        </div>
+        </div> -->
         <div id="table-wrapper"></div>
     </div>
 
     <script src="./js/checkbox.js"></script>
     <script src="./js/handle.js"></script>
     <script src="./js/table.js"></script>
-    <script src="./js/line.js"></script>
-    <script src="./js/bar.js"></script>
+    <!-- <script src="./js/line.js"></script> -->
+    <!-- <script src="./js/bar.js"></script> -->
     <script src="./js/app.js"></script>
 
 </body>

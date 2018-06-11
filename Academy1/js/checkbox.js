@@ -1,6 +1,6 @@
 /* checkbox模块 */
 
-// 动态生成checkbox
+// 生成checkbox函数
 function createCheckboxes(container, props) {
     let str1 = `<input type='checkbox' data-text='全选'>全选</input>`;
     let str2 = ``;

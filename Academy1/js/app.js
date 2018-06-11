@@ -83,21 +83,21 @@ tableRender(invokeFn());
 clickOnCheeckbox(regions);
 clickOnCheeckbox(products);
 
-let tbody = document.getElementsByTagName('table')[0].tBodies[0];
+// let tbody = document.getElementsByTagName('table')[0].tBodies[0];
 
-tbody.onmouseover = function (e) {
-    let tr = e.target.parentNode;
-    let tdList = tr.childNodes;
-    let arr = [];
-    for (let i = 2; i < tdList.length; i++) {
-        arr.push(Number(tdList[i].textContent));  // 将td中的内容转换为数字后存入数组
-    };
-    console.log(arr);
-    // drawBarChart(arr);
-    // drawLineChart(arr);
-}
+// tbody.onmouseover = function (e) {
+//     let tr = e.target.parentNode;
+//     let tdList = tr.childNodes;
+//     let arr = [];
+//     for (let i = 2; i < tdList.length; i++) {
+//         arr.push(Number(tdList[i].textContent));  // 将td中的内容转换为数字后存入数组
+//     };
+//     console.log(arr);
+//     // drawBarChart(arr);
+//     // drawLineChart(arr);
+// }
 
-function showGraph() {
+// function showGraph() {
 
-}
+// }
 
