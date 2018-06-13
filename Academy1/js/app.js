@@ -43,6 +43,7 @@ let div_region = document.getElementById('region-radio-wrapper');
 let div_product = document.getElementById('product-radio-wrapper');
 let table_wrapper = document.getElementById('table-wrapper');
 
+// 一、调用以生成checkboxes
 createCheckboxes(div_region, [{
     id: 'north',
     value: 'north',
@@ -77,27 +78,19 @@ let products = div_product.getElementsByTagName('input');
 // 设置初始状态
 regions[1].checked = true;
 products[1].checked = true;
+
+// 二、调用以生成table
 tableRender(invokeFn());
 
-// 调用click..()函数
+// // 三、调用以生成：初始柱状图与折线图
+let data1 = [{
+    product: "手机",
+    region: "华北",
+    sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+}]
+drawBarChart(data1);
+drawLineChart(data1);
+
+// 四、调用以监听checkboxes上的点击行为
 clickOnCheeckbox(regions);
 clickOnCheeckbox(products);
-
-// let tbody = document.getElementsByTagName('table')[0].tBodies[0];
-
-// tbody.onmouseover = function (e) {
-//     let tr = e.target.parentNode;
-//     let tdList = tr.childNodes;
-//     let arr = [];
-//     for (let i = 2; i < tdList.length; i++) {
-//         arr.push(Number(tdList[i].textContent));  // 将td中的内容转换为数字后存入数组
-//     };
-//     console.log(arr);
-//     // drawBarChart(arr);
-//     // drawLineChart(arr);
-// }
-
-// function showGraph() {
-
-// }
-

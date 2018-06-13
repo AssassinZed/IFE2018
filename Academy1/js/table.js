@@ -13,14 +13,9 @@ function tableRender(data) {
         table_wrapper.innerHTML = `<table><thead><tr><th>商品</th><th>地区</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th></tr></thead><tbody></tbody></table>`;
         let tbody = document.querySelector('table').tBodies[0];
 
-        let arr_idx = [];    //  该数组用于存储需要设置rowspan属性的td的index    //  本为len1 > 1 && len2 > 1 的情况设计，但发现亦适用于其它两个情况^_^
-        for (let i = 0; i < len2; i++) {
-            arr_idx.push(len1 * i);
-        };
-
         for (let i = 0; i < data.length; i++) {
-            if (arr_idx.includes(i)) {              //  若i存在于arr_idx中
-                tbody.innerHTML += `<tr><td rowspan='${len1}'>${data[i].product}</td><td>${data[i].region}</td></tr>`;    //  第一行多一个td元素
+            if (i % len1 === 0) {              //  在i等于len1整数倍处，为需要设置rowspan属性的td
+                tbody.innerHTML += `<tr><td rowspan='${len1}'>${data[i].product}</td><td>${data[i].region}</td></tr>`;    //  这些行多一个td元素
             } else {
                 tbody.innerHTML += `<tr><td>${data[i].region}</td></tr>`;    //  其余行少一个td元素
             }

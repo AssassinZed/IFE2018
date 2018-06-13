@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>第三十一到第三十三天：我是精明的小卖家（一）</title>
-    <style>        
+    <title>第三十一天到第四十一天：我是精明的小卖家</title>
+    <style>
         #container {
             width: 80%;
-            margin: 0 auto;
+            min-width: 1536px;
+            margin: 20px auto;
+            font-size: 14px;
+            letter-spacing: .7px;
+            /* border: 1px solid red; */
         }
 
         div {
@@ -21,7 +25,11 @@
         }
 
         #radios {
-            margin-left: 100px;
+            width: 1380px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         #region-radio-wrapper,
@@ -31,39 +39,41 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            border: 3px solid #ccc;
+            border: 2px solid #60acfc;
+            margin: 0 15px;
         }
 
         #graphs {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: flex-start;
         }
 
-        svg,
+        /* svg,
         canvas {
             border: 1px solid red;
-            /* transform: translateY(-70px) scale(0.7, 0.7); */
+        } */
+
+        svg line {
+            shape-rendering: crispEdges;
         }
 
         svg text {
             font-size: 10px;
         }
 
-        svg line {
-            stroke-width: 1px;
-        }
-
-        svg line.axis {
-            stroke-width: 2px;
-        }
-
         table {
+            width: 1370px;
             border-collapse: collapse;
+            margin-left: 80px;
         }
+
+        thead {
+            background-color: #60acfc;
+        }
+
         th,
         td {
-            width: 80px;
             height: 30px;
             border: 1px solid #ccc;
             text-align: center;
@@ -75,21 +85,28 @@
 <body>
     <div id="container">
         <div id="radios">
+            <p>请选择地区（可多选）：</p>
             <div id="region-radio-wrapper"></div>
+            <p>请选择商品（可多选）：</p>
             <div id="product-radio-wrapper"></div>
         </div>
-        <!-- <div id="graphs">
-            <svg id="svg" width='700' height='700'></svg>
-            <canvas id="canvas"></canvas>
-        </div> -->
+        <div id="graphs">
+            <div id="bar-wrapper">
+                <svg id="svg" width='700' height='400' xmlns="http://www.w3.org/2000/svg"></svg>
+            </div>
+            <div id="line-wrapper">
+                <canvas id="canvas" width="700" height="400"></canvas>
+            </div>
+        </div>
         <div id="table-wrapper"></div>
     </div>
 
     <script src="./js/checkbox.js"></script>
     <script src="./js/handle.js"></script>
     <script src="./js/table.js"></script>
-    <!-- <script src="./js/line.js"></script> -->
-    <!-- <script src="./js/bar.js"></script> -->
+    <script src="./js/bar.js"></script>
+    <script src="./js/line.js"></script>
+    <script src="./js/event.js"></script>
     <script src="./js/app.js"></script>
 
 </body>
