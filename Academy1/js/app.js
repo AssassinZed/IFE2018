@@ -1,47 +1,10 @@
 /* 主模块 */
 
-let sourceData = [{
-    product: "手机",
-    region: "华东",
-    sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
-}, {
-    product: "手机",
-    region: "华北",
-    sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
-}, {
-    product: "手机",
-    region: "华南",
-    sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
-}, {
-    product: "笔记本",
-    region: "华东",
-    sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
-}, {
-    product: "笔记本",
-    region: "华北",
-    sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
-}, {
-    product: "笔记本",
-    region: "华南",
-    sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
-}, {
-    product: "智能音箱",
-    region: "华东",
-    sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
-}, {
-    product: "智能音箱",
-    region: "华北",
-    sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
-}, {
-    product: "智能音箱",
-    region: "华南",
-    sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
-}];
-
 // 元素命名
 let div_region = document.getElementById('region-radio-wrapper');
 let div_product = document.getElementById('product-radio-wrapper');
 let table_wrapper = document.getElementById('table-wrapper');
+let btn_save = document.getElementById('save');
 
 // 一、调用以生成checkboxes
 createCheckboxes(div_region, [{
@@ -94,3 +57,51 @@ drawLineChart(data1);
 // 四、调用以监听checkboxes上的点击行为
 clickOnCheeckbox(regions);
 clickOnCheeckbox(products);
+
+
+// 五、监听每个td上的mouseover事件
+
+let tdList = document.querySelectorAll('td');
+let str_input = `<input type='text'><button>确认</button><button>取消</button>`;
+let str_edit = `<span>编辑</span>`;
+for (let i = 0; i < tdList.length; i++) {
+    tdList[i].onmouseenter = function () {
+        let count = 0;
+        let origin_data = tdList[i].textContent;    // 存储单元格中的原始内容
+
+        tdList[i].innerHTML += str_edit;
+
+        tdList[i].onclick = function (e) {
+            let tag = e.target.tagName.toLowerCase();
+            // 单元格在 mouseenter 之后的 onclick 仅触发一次相关事件
+            if (tag != 'span' && count < 1) {
+                tdList[i].innerHTML = origin_data + str_input;
+                count++;
+            };
+
+            let input = tdList[i].querySelector('input');
+            let btnList = tdList[i].querySelectorAll('button');
+            btnList[0].onclick = function () {
+                let val = input.value;
+                if (!Number(val) && val !== '0') {
+                    alert('请输入正确数值！');
+                } else {
+                    tdList[i].innerHTML = input.value;
+                }
+            };
+            btnList[1].onclick = function () {
+                tdList[i].innerHTML = origin_data;
+            };
+
+        };
+
+        tdList[i].onmouseleave = function () {
+            tdList[i].innerHTML = origin_data;
+        };
+    }
+
+}
+
+btn_save.onclick = function () {
+    
+}

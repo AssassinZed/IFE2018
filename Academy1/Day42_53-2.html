@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第四十二天到第五十三天：开一家餐厅吧</title>
+</head>
+
+<body>
+    <script>
+
+        // ES5
+
+        // 餐厅类
+        function Restaurant(prop) {
+            this.prop = prop;
+        }
+
+        Restaurant.prototype.hire = function (staff) {
+            this.prop.staff.push(staff.name);
+        }
+
+        Restaurant.prototype.fire = function (staff) {
+            let firedStaffIdx = this.prop.staff.indexOf(staff.name);
+            this.prop.staff.splice(firedStaffIdx, 1);
+        }
+
+        // 职员类
+        function Staff(name, salary, id) {
+            this.name = name;
+            this.salary = salary;
+            this.id = id;
+        }
+
+        Staff.prototype.job = function() {}
+
+        // 服务员类
+        function Waiter() {
+
+        }
+        
+
+        // 厨师类
+        
+        
+
+        // 顾客类
+        class Customer {
+            constructor() {
+                this.order = function () { };
+                this.eat = function () { };
+            }
+        }
+
+        // 菜品类
+        class Dish {
+            constructor(name, cost, price) {
+                this.name = name;
+                this.cost = cost;
+                this.price = price;
+            }
+        }
+
+        var ifeRestaurant = new Restaurant({
+            cash: 1000000,
+            seats: 20,
+            staff: []
+        });
+
+        var newCook = new Cook("Tony", 10000);
+        ifeRestaurant.hire(newCook);
+
+        console.log(ifeRestaurant.staff);
+
+        ifeRestaurant.fire(newCook);
+        console.log(ifeRestaurant.staff);
+
+
+
+    </script>
+</body>
+
+</html>

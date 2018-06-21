@@ -7,13 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>第三十一天到第四十一天：我是精明的小卖家</title>
     <style>
-        #container {
-            width: 80%;
-            min-width: 1536px;
-            margin: 20px auto;
-            font-size: 14px;
-            letter-spacing: .7px;
-            /* border: 1px solid red; */
+        [type='text'] {
+            width: 25px;
         }
 
         div {
@@ -24,9 +19,22 @@
             margin: 0 8px;
         }
 
+        #container {
+            width: 80%;
+            min-width: 1536px;
+            margin: 20px auto;
+            font-size: 14px;
+            letter-spacing: .7px;
+            /* border: 1px solid red; */
+        }
+
+        #top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         #radios {
-            width: 1380px;
-            margin: 0 auto;
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -74,21 +82,36 @@
 
         th,
         td {
+            max-width: 60px;
             height: 30px;
             border: 1px solid #ccc;
             text-align: center;
             font-size: 14px;
+            position: relative;
+        }
+
+        td span {
+            color: #666;
+            font-size: 10px;
+            position: absolute;
+            right: 0;
+            top: 0;
         }
     </style>
 </head>
 
 <body>
     <div id="container">
-        <div id="radios">
-            <p>请选择地区（可多选）：</p>
-            <div id="region-radio-wrapper"></div>
-            <p>请选择商品（可多选）：</p>
-            <div id="product-radio-wrapper"></div>
+        <div id="top">
+            <div id="radios">
+                <p>请选择地区（可多选）：</p>
+                <div id="region-radio-wrapper"></div>
+                <p>请选择商品（可多选）：</p>
+                <div id="product-radio-wrapper"></div>
+            </div>
+            <div id="btns">请在修改表格后点击保存：
+                <button id="save">保存</button>
+            </div>
         </div>
         <div id="graphs">
             <div id="bar-wrapper">
@@ -101,6 +124,7 @@
         <div id="table-wrapper"></div>
     </div>
 
+    <script src="./js/data.js"></script>
     <script src="./js/checkbox.js"></script>
     <script src="./js/handle.js"></script>
     <script src="./js/table.js"></script>
