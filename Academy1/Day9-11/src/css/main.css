@@ -1,0 +1,669 @@
+/* 引入字体 */
+@font-face {
+    font-family: font-light;
+    src: url(../font/Montserrat-Light.ttf);
+}
+
+@font-face {
+    font-family: font-exlight;
+    src: url(../font/Montserrat-ExtraLight.ttf);
+}
+
+/* 基本默认值 */
+
+body {
+    margin: 0;
+    line-height: 1.5;
+    min-width: 1170px;
+}
+
+h1,
+h2 {
+    margin: 0;
+    font-weight: normal;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;    
+    color: inherit;/* 覆盖user agent */
+}
+
+input,
+button,
+textarea {
+    font: inherit;
+    color: inherit;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+input[type='submit'] {
+    cursor: pointer;
+}
+
+address {
+    font-style: normal;
+}
+
+/* 公用样式 */
+
+.text-center {
+    text-align: center;
+}
+
+/* 1.header */
+
+.header {
+    width: 100%;    
+    overflow: hidden;  /* 创建BFC避免margin collapsing */
+    background-image: url(../img/headerbg.jpg);
+    background-size: cover; 
+    color: #fff;
+    font-family: font-light;
+}
+
+.header-content {
+    width: 970px;
+    margin: 210px auto;
+}
+
+.header .title {
+    font: 62px font-exlight;
+}
+
+.header .text {
+    width: 770px;
+    margin: 0 auto;
+    margin-top: 50px;
+    font: 20px font-exlight;
+    opacity: .7;
+}
+
+.header .form {
+    margin-top: 100px;
+    width: 100%;
+    height: 250px;
+    font-family: font-light;
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+
+.header .form-title {    
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1.5px;      
+    margin: 55px 0 15px 0;/* 父元素有border，不会造成margin collapsing */
+}
+
+.header .form-text {    
+    font-size: 12px;
+    opacity: .3;   
+}
+
+.header .inputs {
+    width: 770px;
+    margin: 0 auto;
+    margin-top: 45px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;    
+}
+
+.header .user,
+.header .psw {
+    box-sizing: border-box;
+    width: 292px;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    padding: 0 20px;
+}
+
+.header .user {
+    font-size: 14px;
+}
+
+.header .psw {
+    font-size: 16px;
+}
+
+.header .submit {
+    box-sizing: border-box;
+    width: 125px;
+    height: 50px;
+    font-size: 12px;
+    color: #141414;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+/* 2.container */
+
+.container {
+    width: 100%;
+}
+
+/* 2-1.advantage */
+
+.advantage {
+    width: 100%;
+    color: #141414;
+}
+
+.advantage .title {
+    font: 14px font-light;
+    margin-top: 85px;
+}
+
+.advantage .text {
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 40px;
+    font: 42px/1.2 font-exlight;
+}
+
+.adv-content {
+    width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 90px;
+    margin-bottom: 110px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.advantage .item {
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 75px;
+    width: 450px;
+    height: 166px;    
+}
+
+.advantage .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../img/iconlist1.png);
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+.advantage .logo2 {
+    background-position: 0 -99px;
+}
+
+.advantage .logo3 {
+    background-position: 0 -49px;
+}
+
+.advantage .logo4 {
+    background-position: 0 -150px;
+}
+
+.advantage .item-title {
+    font: 20px font-light;
+}
+
+.advantage .item-text {
+    opacity: .7;
+    font: 16px font-exlight;
+    margin-top: 20px;
+}
+
+/* 2-2.policy */
+
+.policy {
+    width: 100%;    
+    background-image: url(../img/policybg.jpg);
+    background-size: cover;
+    overflow: hidden;
+    color: #fff;
+    position: relative;
+}
+
+.policy-content {
+    width: 970px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.policy .left {
+    width: 510px;
+    font-family: font-exlight;
+    margin-right: 140px;
+}
+
+.policy .title {
+    width: 385px;
+    font-size: 42px;
+    line-height: 52px;
+}
+
+.policy .text {
+    width: 385px;
+    font-size: 18px;
+    opacity: .7;
+    line-height: 28px;
+    margin: 40px 0;
+}
+
+.policy .btn-box {
+    width: 100%;
+    font: 12px font-light;
+    overflow: hidden;
+}
+
+.policy .btn {
+    width: 240px;
+    height: 60px;
+    letter-spacing: 1px;
+}
+
+.policy .btn1 {
+    float: left;
+    color: #141414;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.policy .btn2 {
+    float: right;
+    border: 1px solid rgba(255, 255, 255, .3);
+}
+
+.policy .right {
+    position: absolute;
+    right: 0;
+    width: 640px;
+    height: 600px;
+    background: url(../img/ipad.png) no-repeat;
+}
+
+/* 2-3.trial */
+
+.trial {
+    width: 100%;
+    height: 580px;
+    font-family: font-exlight;
+    color: #141414;
+    border-bottom: 1px solid rgba(20, 20, 20, .1);
+}
+
+.trial-content {
+    width: 970px;
+    margin: 0 auto;
+}
+
+.trial .title {
+    font-size: 42px;
+    margin: 100px 0 80px 0;
+}
+
+.trial .list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trial .item {
+    width: 270px;
+}
+
+.trial .logo {
+    display: block;
+    width: 120px;
+    height: 50px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    background-image: url(../img/font.png);
+}
+
+.trial .logo2 {
+    background-position: 0 -50px;
+}
+
+.trial .logo3 {
+    background-position: 0 -100px;
+}
+
+.trial .item-text {
+    font-size: 16px;
+    line-height: 26px;
+    opacity: .7;
+}
+
+/* 2-4.learn-choose */
+
+.learn-choose {
+    width: 100%;
+    color: #141414;
+}
+
+.lc-content {
+    width: 1000px;
+    margin: 110px auto;
+}
+
+.learn-choose .item {
+    width: 100%;
+    overflow: hidden;/* 创建BFC以包含浮动元素 */ 
+}
+
+.learn-choose .item1 {
+    margin-bottom: 80px;
+}
+
+.learn-choose .pic1 {
+    float: left;
+}
+
+.learn-choose .pic2 {
+    float: right;
+}
+
+.learn-choose .text {
+    width: 325px;
+}
+
+.learn-choose .text1 {
+    float: right;
+}
+
+.learn-choose .text2 {
+    float: left;
+}
+
+.learn-choose .item-title {
+    font: 20px/32px font-light;
+    margin-top: 60px;
+}
+
+.learn-choose .item-text {
+    font: 16px/28px font-exlight;
+    opacity: .7;
+    margin-top: 25px;
+}
+
+
+/* 2-5.team */
+
+.team {
+    width: 100%;
+    color: #141414;
+    margin: 200px 0 100px 0;
+}
+
+.team-content {
+    width: 970px;
+    margin: 0 auto;
+}
+
+.team .title {
+    font: 42px font-exlight;
+}
+
+.team .text {
+    width: 710px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font: 18px/28px font-exlight;
+    opacity: .7;
+}
+
+.team .list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.team .item {
+    position: relative;
+    width: 470px;
+}
+
+.team .item:nth-child(odd) {
+    margin: 0 30px 30px 0;
+}
+
+.team .item:hover .crew {
+    filter: brightness(50%);
+}
+
+.team .item:hover .item-content {
+    display: block;
+}
+
+.team .item-content {
+    /* 垂直居中解决方案 */
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    width: 216px;
+    height: 140px;
+    margin-left: -108px;
+    margin-top: -70px;
+    font-family: font-light;
+    color: #fff;
+}
+
+.team .crew-name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.team .crew-job {
+    font-size: 12px;
+    opacity: .4;
+    font-weight: 500;
+    margin: 10px 0 30px 0;
+}
+
+.team .social {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.team .social-btn {
+    display: inline-block;
+    width: 70px;
+    height: 55px;
+    background-image: url(../img/SocialButtons.png);
+}
+
+.team .social-btn2 {
+    background-position: -70px 0;
+}
+
+.team .social-btn3 {
+    background-position: -143px 0;
+}
+
+/* 2-6.contact */
+
+.contact {
+    width: 100%;
+    border: 1px solid rgba(20, 20, 20, .1);
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 970px;
+    height: 700px;
+    margin: 0 auto;
+}
+
+.contact .left {
+    width: 470px;
+    font-family: font-light;
+    color: #141414;
+}
+
+.contact .title1 {
+    font-size: 16px;
+}
+
+.contact .form {
+    width: 370px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.contact .email,
+.contact .subject,
+.contact .submit {
+    width: 370px;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.contact .email,
+.contact .subject,
+.contact .msg {
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 14px;
+    opacity: .5;
+    border: 1px solid rgba(20, 20, 20, .4);
+}
+
+.contact .msg {
+    width: 370px;
+    height: 142px;
+    margin-bottom: 30px;
+}
+
+.contact .submit {
+    background: #141414;
+    color: #fff;
+    font-size: 12px;
+}
+
+.contact .right {
+    width: 370px;
+    color: #141414;
+}
+
+.contact .title2 {
+    font: 42px font-exlight;
+}
+
+.contact .text {
+    font: 16px/26px font-exlight;
+    opacity: .7;
+    margin: 30px 0 55px 0;
+}
+
+.contact .address {
+    font-family: font-light;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.contact .item {
+    position: relative;
+    box-sizing: border-box;
+    width: 270px;
+    padding-left: 35px;
+    margin-bottom: 30px;
+}
+
+.contact .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 5px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/iconlist2.png);
+}
+
+.contact .logo2 {
+    background-position: 0 -25px;
+}
+
+.contact .logo3 {
+    background-position: 0 -50px;
+}
+
+/* 3.footer */
+
+.footer {
+    width: 100%;
+    height: 410px;
+    background-color: #141414;
+    color: #fff;
+    overflow: hidden;
+}
+
+.footer-content {
+    width: 1170px;
+    margin: 0 auto;
+    margin-top: 85px;
+    display: grid;
+    grid-template-rows: 200px;
+    grid-template-columns: 300px 300px 300px 270px;
+}
+
+.footer .item-title {
+    font: 14px font-light;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer .link,
+.footer .text {
+    display: block;
+    font: 16px font-exlight;
+    opacity: .3;
+    margin: 25px 0;
+}
+
+.footer .logo {
+    display: inline-block;
+    margin-right: 10px;
+    width: 24px;
+    height: 18px;
+    background-image: url(../img/SocialsButtons2.png);
+}
+
+.footer .logo2 {
+    background-position: -40px 0;
+}
+
+.footer .logo3 {
+    background-position: -77px 0;
+}
+
+.footer .logo4 {
+    background-position: -114px 0;
+}
+
+.footer .logo5 {
+    background-position: -158px 0;
+}
+
+.footer .logo6 {
+    background-position: -198px 0;
+}

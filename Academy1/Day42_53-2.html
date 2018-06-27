@@ -11,20 +11,31 @@
 <body>
     <script>
 
-        // ES5
+        // ES5 寄生组合式继承
+
+        // 子类继承父类
+        function extend(subType, superType) {
+            function F() { };
+            F.prototype = superType.prototype;
+            var proto = new F;
+            proto.constructor = subType;
+            subType.prototype = proto;
+        }
 
         // 餐厅类
         function Restaurant(prop) {
-            this.prop = prop;
+            this.cash = prop.cash;
+            this.seats = prop.seats;
+            this.staffList = prop.staff;
         }
 
         Restaurant.prototype.hire = function (staff) {
-            this.prop.staff.push(staff.name);
+            this.staffList.push(staff.name);
         }
 
         Restaurant.prototype.fire = function (staff) {
-            let firedStaffIdx = this.prop.staff.indexOf(staff.name);
-            this.prop.staff.splice(firedStaffIdx, 1);
+            let firedStaffIdx = this.staffList.indexOf(staff.name);
+            this.staffList.splice(firedStaffIdx, 1);
         }
 
         // 职员类
@@ -34,35 +45,40 @@
             this.id = id;
         }
 
-        Staff.prototype.job = function() {}
+        Staff.prototype.job = function () { };
 
-        // 服务员类
-        function Waiter() {
-
-        }
-        
+        // // 服务员类
+        // function Waiter() {
+        //     Staff.call(this);
+        // };
+        // extend(Waiter, Staff);  // 继承职员类
+        // Waiter.prototype.complete = function (arg) { };
 
         // 厨师类
-        
-        
+        function Cook(name, salary) {
+            Staff.call(this, name, salary);
+        };
+        extend(Cook, Staff);    // 继承职员类
+        Cook.prototype.complete = function (arg) { };
 
-        // 顾客类
-        class Customer {
-            constructor() {
-                this.order = function () { };
-                this.eat = function () { };
-            }
-        }
+        // // 顾客类
+        // class Customer {
+        //     constructor() {
+        //         this.order = function () { };
+        //         this.eat = function () { };
+        //     }
+        // }
 
-        // 菜品类
-        class Dish {
-            constructor(name, cost, price) {
-                this.name = name;
-                this.cost = cost;
-                this.price = price;
-            }
-        }
+        // // 菜品类
+        // class Dish {
+        //     constructor(name, cost, price) {
+        //         this.name = name;
+        //         this.cost = cost;
+        //         this.price = price;
+        //     }
+        // }
 
+        // 实例化
         var ifeRestaurant = new Restaurant({
             cash: 1000000,
             seats: 20,
@@ -72,10 +88,10 @@
         var newCook = new Cook("Tony", 10000);
         ifeRestaurant.hire(newCook);
 
-        console.log(ifeRestaurant.staff);
+        console.log(ifeRestaurant.staffList);
 
         ifeRestaurant.fire(newCook);
-        console.log(ifeRestaurant.staff);
+        console.log(ifeRestaurant.staffList);
 
 
 

@@ -1,17 +1,21 @@
-# IFE 2018 Demo by AssassinZed
+#### 2018百度前端技术学院  课程目录
+
+作者：AssassinZed
 
 
-#### Academy1:
-*[ Course1]( https://assassinzed.github.io/IFE/Academy1/Course1.txt)
-*[ Course2]( https://assassinzed.github.io/IFE/Academy1/Course2.html)
-*[ Course5&Course6]( https://assassinzed.github.io/IFE/Academy1/resume.html)
+##### 零技术学院
+
+1. 第一天：为什么有那么多人要做前端？
+[课程](http://ife.baidu.com/course/detail/id/28)
+[作业](https://assassinzed.github.io/IFE/Academy1/Course1.txt)
+
+2. 第二天：给自己做一个在线简历吧
+[课程](http://ife.baidu.com/course/detail/id/36)
+[作业](https://assassinzed.github.io/IFE/Academy1/Course2.html)
+
+3. 第二天：给自己做一个在线简历吧
+[课程](http://ife.baidu.com/course/detail/id/37)
+[作业](https://assassinzed.github.io/IFE/Academy1/resume.html)
 
 
-
-#### Academy3
-*[ Course1-1]( https://assassinzed.github.io/IFE/Academy3/Course1-1.html)
-*[ Course1-2]( https://assassinzed.github.io/IFE/Academy3/Course1-2.html)
-*[ Course1-3]( https://assassinzed.github.io/IFE/Academy3/Course1-3.html)
-*[ Course2-1]( https://assassinzed.github.io/IFE/Academy3/Course2-1.html)
-*[ Course3-1]( https://assassinzed.github.io/IFE/Academy3/Course3-1.html)
-
+##### 设计师学院
