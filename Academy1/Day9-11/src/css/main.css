@@ -12,9 +12,9 @@
 /* 基本默认值 */
 
 body {
-    margin: 0;
-    line-height: 1.5;
+    margin: 0;    
     min-width: 1170px;
+    line-height: 1.5;
 }
 
 h1,
@@ -37,21 +37,21 @@ li {
 }
 
 a {
-    text-decoration: none;    
+    text-decoration: none; 
     color: inherit;/* 覆盖user agent */
 }
 
 input,
 button,
 textarea {
-    font: inherit;
-    color: inherit;
-    background: none;
-    outline: none;
     border: none;
+    font: inherit;    
+    background: none;
+    color: inherit;
+    outline: none;    
 }
 
-input[type='submit'] {
+input[type="submit"] {
     cursor: pointer;
 }
 
@@ -68,12 +68,12 @@ address {
 /* 1.header */
 
 .header {
-    width: 100%;    
     overflow: hidden;  /* 创建BFC避免margin collapsing */
+    width: 100%;    
     background-image: url(../img/headerbg.jpg);
-    background-size: cover; 
+    background-size: cover;
     color: #fff;
-    font-family: font-light;
+    font-family: font-light, sans-serif;
 }
 
 .header-content {
@@ -82,14 +82,14 @@ address {
 }
 
 .header .title {
-    font: 62px font-exlight;
+    font: 62px font-light, sans-serif;
 }
 
 .header .text {
     width: 770px;
     margin: 0 auto;
     margin-top: 50px;
-    font: 20px font-exlight;
+    font: 20px/1.5 font-light, sans-serif;
     opacity: .7;
 }
 
@@ -101,34 +101,34 @@ address {
     border: 1px solid rgba(255, 255, 255, .2);
 }
 
-.header .form-title {    
+.header .form-title {  
+    margin: 55px 0 15px 0;/* 父元素有border，不会造成margin collapsing */  
     font-size: 16px;
     font-weight: 500;
-    letter-spacing: 1.5px;      
-    margin: 55px 0 15px 0;/* 父元素有border，不会造成margin collapsing */
+    letter-spacing: 1.5px;
 }
 
-.header .form-text {    
+.header .form-text {  
     font-size: 12px;
-    opacity: .3;   
+    opacity: .3;
 }
 
 .header .inputs {
+    display: flex;
+    justify-content: space-between;
     width: 770px;
     margin: 0 auto;
     margin-top: 45px;
-    display: flex;
-    justify-content: space-between;
     font-size: 14px;    
 }
 
 .header .user,
-.header .psw {
-    box-sizing: border-box;
+.header .psw {    
     width: 292px;
     height: 50px;
     border: 1px solid rgba(255, 255, 255, .2);
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .header .user {
@@ -140,13 +140,13 @@ address {
 }
 
 .header .submit {
-    box-sizing: border-box;
     width: 125px;
     height: 50px;
-    font-size: 12px;
-    color: #141414;
+    font-size: 12px; 
     background-color: #fff;
+    color: #141414;
     border-radius: 2px;
+    box-sizing: border-box;
 }
 
 /* 2.container */
@@ -163,45 +163,45 @@ address {
 }
 
 .advantage .title {
-    font: 14px font-light;
     margin-top: 85px;
+    font: 14px font-light, sans-serif;
 }
 
 .advantage .text {
     width: 700px;
     margin: 0 auto;
     margin-top: 40px;
-    font: 42px/1.2 font-exlight;
+    font: 42px/1.2 font-light, sans-serif;
 }
 
 .adv-content {
-    width: 1050px;
-    margin: 0 auto;
-    overflow: hidden;
-    margin-top: 90px;
-    margin-bottom: 110px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    overflow: hidden;
+    width: 1050px;
+    margin: 0 auto;    
+    margin-top: 90px;
+    margin-bottom: 110px;    
 }
 
 .advantage .item {
     position: relative;
-    box-sizing: border-box;
-    padding-left: 75px;
     width: 450px;
-    height: 166px;    
+    height: 166px; 
+    padding-left: 75px;
+    box-sizing: border-box;   
 }
 
 .advantage .logo {
+    display: block;
     position: absolute;
     top: 0;
-    left: 0;
-    background-image: url(../img/iconlist1.png);
-    display: block;
+    left: 0;  
     width: 50px;
     height: 50px;
     margin-top: 5px;
+    background-image: url(../img/iconlist1.png);
 }
 
 .advantage .logo2 {
@@ -217,39 +217,39 @@ address {
 }
 
 .advantage .item-title {
-    font: 20px font-light;
+    font: 20px font-light, sans-serif;
 }
 
 .advantage .item-text {
+    margin-top: 20px;  
+    font: 16px font-light, sans-serif;
     opacity: .7;
-    font: 16px font-exlight;
-    margin-top: 20px;
 }
 
 /* 2-2.policy */
 
 .policy {
+    position: relative;
+    overflow: hidden;
     width: 100%;    
     background-image: url(../img/policybg.jpg);
-    background-size: cover;
-    overflow: hidden;
-    color: #fff;
-    position: relative;
+    background-size: cover;  
+    color: #fff;    
 }
 
 .policy-content {
-    width: 970px;
-    height: 800px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 970px;
+    height: 800px;
+    margin: 0 auto;
 }
 
 .policy .left {
     width: 510px;
-    font-family: font-exlight;
     margin-right: 140px;
+    font-family: font-light, sans-serif;   
 }
 
 .policy .title {
@@ -260,16 +260,16 @@ address {
 
 .policy .text {
     width: 385px;
-    font-size: 18px;
-    opacity: .7;
-    line-height: 28px;
     margin: 40px 0;
+    font-size: 18px;
+    line-height: 28px;
+    opacity: .7;    
 }
 
 .policy .btn-box {
-    width: 100%;
-    font: 12px font-light;
     overflow: hidden;
+    width: 100%;
+    font: 12px font-light, sans-serif;  
 }
 
 .policy .btn {
@@ -280,8 +280,8 @@ address {
 
 .policy .btn1 {
     float: left;
-    color: #141414;
     background-color: #fff;
+    color: #141414;
     border-radius: 2px;
 }
 
@@ -303,9 +303,9 @@ address {
 .trial {
     width: 100%;
     height: 580px;
-    font-family: font-exlight;
-    color: #141414;
     border-bottom: 1px solid rgba(20, 20, 20, .1);
+    font-family: font-light, sans-serif;
+    color: #141414;    
 }
 
 .trial-content {
@@ -314,8 +314,8 @@ address {
 }
 
 .trial .title {
-    font-size: 42px;
     margin: 100px 0 80px 0;
+    font-size: 42px;
 }
 
 .trial .list {
@@ -363,8 +363,8 @@ address {
 }
 
 .learn-choose .item {
-    width: 100%;
-    overflow: hidden;/* 创建BFC以包含浮动元素 */ 
+    overflow: hidden;/* 创建BFC以包含浮动元素 */
+    width: 100%;     
 }
 
 .learn-choose .item1 {
@@ -392,14 +392,14 @@ address {
 }
 
 .learn-choose .item-title {
-    font: 20px/32px font-light;
     margin-top: 60px;
+    font: 20px/32px font-light, sans-serif;    
 }
 
 .learn-choose .item-text {
-    font: 16px/28px font-exlight;
-    opacity: .7;
     margin-top: 25px;
+    font: 16px/28px font-light, sans-serif;
+    opacity: .7;    
 }
 
 
@@ -407,8 +407,8 @@ address {
 
 .team {
     width: 100%;
-    color: #141414;
     margin: 200px 0 100px 0;
+    color: #141414;    
 }
 
 .team-content {
@@ -417,7 +417,7 @@ address {
 }
 
 .team .title {
-    font: 42px font-exlight;
+    font: 42px font-light, sans-serif;
 }
 
 .team .text {
@@ -425,7 +425,7 @@ address {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 50px;
-    font: 18px/28px font-exlight;
+    font: 18px/28px font-light, sans-serif;
     opacity: .7;
 }
 
@@ -461,7 +461,7 @@ address {
     height: 140px;
     margin-left: -108px;
     margin-top: -70px;
-    font-family: font-light;
+    font-family: font-light, sans-serif;
     color: #fff;
 }
 
@@ -471,16 +471,16 @@ address {
 }
 
 .team .crew-job {
-    font-size: 12px;
-    opacity: .4;
-    font-weight: 500;
     margin: 10px 0 30px 0;
+    font-size: 12px;    
+    font-weight: 500;
+    opacity: .4;
 }
 
 .team .social {
-    display: flex;
-    width: 100%;
+    display: flex;    
     justify-content: space-between;
+    width: 100%;
 }
 
 .team .social-btn {
@@ -516,7 +516,7 @@ address {
 
 .contact .left {
     width: 470px;
-    font-family: font-light;
+    font-family: font-light, sans-serif;
     color: #141414;
 }
 
@@ -541,11 +541,11 @@ address {
 .contact .email,
 .contact .subject,
 .contact .msg {
-    box-sizing: border-box;
     padding: 15px;
-    font-size: 14px;
+    border: 1px solid rgba(20, 20, 20, .4);    
+    font-size: 14px;    
     opacity: .5;
-    border: 1px solid rgba(20, 20, 20, .4);
+    box-sizing: border-box;
 }
 
 .contact .msg {
@@ -555,9 +555,9 @@ address {
 }
 
 .contact .submit {
-    background: #141414;
-    color: #fff;
     font-size: 12px;
+    background: #141414;
+    color: #fff;    
 }
 
 .contact .right {
@@ -566,36 +566,36 @@ address {
 }
 
 .contact .title2 {
-    font: 42px font-exlight;
+    font: 42px font-light, sans-serif;
 }
 
 .contact .text {
-    font: 16px/26px font-exlight;
-    opacity: .7;
     margin: 30px 0 55px 0;
+    font: 16px/26px font-light, sans-serif;
+    opacity: .7;    
 }
 
 .contact .address {
-    font-family: font-light;
+    font-family: font-light, sans-serif;
     font-size: 16px;
     font-weight: 600;
 }
 
 .contact .item {
     position: relative;
-    box-sizing: border-box;
     width: 270px;
     padding-left: 35px;
     margin-bottom: 30px;
+    box-sizing: border-box;
 }
 
 .contact .logo {
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 5px;
     width: 24px;
     height: 24px;
+    margin-top: 5px;
     background-image: url(../img/iconlist2.png);
 }
 
@@ -610,24 +610,24 @@ address {
 /* 3.footer */
 
 .footer {
+    overflow: hidden;
     width: 100%;
     height: 410px;
     background-color: #141414;
-    color: #fff;
-    overflow: hidden;
+    color: #fff;    
 }
 
 .footer-content {
-    width: 1170px;
-    margin: 0 auto;
-    margin-top: 85px;
     display: grid;
     grid-template-rows: 200px;
     grid-template-columns: 300px 300px 300px 270px;
+    width: 1170px;
+    margin: 0 auto;
+    margin-top: 85px;
 }
 
 .footer .item-title {
-    font: 14px font-light;
+    font: 14px font-light, sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -635,16 +635,16 @@ address {
 .footer .link,
 .footer .text {
     display: block;
-    font: 16px font-exlight;
-    opacity: .3;
     margin: 25px 0;
+    font: 16px font-light, sans-serif;
+    opacity: .3;    
 }
 
 .footer .logo {
-    display: inline-block;
-    margin-right: 10px;
+    display: inline-block;    
     width: 24px;
     height: 18px;
+    margin-right: 10px;
     background-image: url(../img/SocialsButtons2.png);
 }
 
