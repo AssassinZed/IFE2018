@@ -1,17 +1,17 @@
-/* 表格模块 */
+/* Table Module */
 
-
-// 渲染表格
+/* Render table */
+// data, the return value of filterData() method
+// 依赖getSelectedCheckbox() 函数
 function tableRender(data) {
 
-    // 获取两组checkbox的选择数量
     let len1 = getSelectedCheckbox(regions).length;
     let len2 = getSelectedCheckbox(products).length;
 
     if ((len1 > 1 && len2 == 1) || (len1 > 1 && len2 > 1) || (len1 == 1 && len2 == 1)) {
 
         table_wrapper.innerHTML = `<table><thead><tr><th>商品</th><th>地区</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th></tr></thead><tbody></tbody></table>`;
-        let tbody = document.querySelector('table').tBodies[0];
+        let tbody = document.querySelector('tbody');
 
         for (let i = 0; i < data.length; i++) {
             if (i % len1 === 0) {              //  在i等于len1整数倍处，为需要设置rowspan属性的td

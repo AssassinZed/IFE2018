@@ -1,0 +1,97 @@
+[type='text'] {
+    width: 25px;
+}
+
+[type='checkbox'] {
+    margin: 0 8px;
+}
+
+#container {
+    width: 80%;
+    min-width: 1536px;
+    margin: 20px auto;
+    font-size: 14px;
+    letter-spacing: .7px;
+}
+
+#container>div {
+    margin: 10px 0;
+}
+
+#top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#radios {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 80px;
+}
+
+#region-wrapper,
+#product-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 300px;
+    height: 30px;    
+    border: 2px solid #60acfc;
+    margin: 0 15px;
+}
+
+#graphs {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+svg line {
+    shape-rendering: crispEdges;
+}
+
+svg text {
+    font-size: 10px;
+}
+
+table {
+    width: 1370px;
+    border-collapse: collapse;
+    margin-left: 80px;
+}
+
+thead {
+    background-color: #60acfc;
+}
+
+th,
+td {
+    position: relative;
+    min-width: 90px;    
+    height: 30px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 14px;
+}
+
+td>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+.yes,
+.no,
+.edit {
+    font-size: 10px;
+    color: #666;
+}
+
+.edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

@@ -1,11 +1,12 @@
-/* checkbox模块 */
+/* Checkbox Module */
 
-// 生成checkbox函数
-function createCheckboxes(container, props) {
-    let str1 = `<input type='checkbox' data-text='全选'>全选</input>`;
+/* Render checkbox */
+// value, text, both Array type
+function createCheckboxes(container, value, text) {
+    let str1 = `<input type='checkbox' data-text='全选'><span>全选</span>`;
     let str2 = ``;
     for (let i = 0; i < 3; i++) {
-        str2 += `<input type='checkbox' id='${props[i].id}' value='${props[i].value}' data-text='${props[i].text}'>${props[i].text}`;
+        str2 += `<input type='checkbox' id='${value[i]}' value='${value[i]}' data-text='${text[i]}'><span>${text[i]}</span>`;
     }
     container.innerHTML = str1 + str2;
 }
